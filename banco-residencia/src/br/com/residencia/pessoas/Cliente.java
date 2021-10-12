@@ -1,6 +1,8 @@
 package br.com.residencia.pessoas;
 
 public class Cliente {
-//teste
-
+	String nome;
+	String cpf;
+	int senha;
+	
 }

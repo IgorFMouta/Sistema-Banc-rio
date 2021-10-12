@@ -7,12 +7,9 @@ public class Conta {
 	private String sobrenome;
 	private double saldo;
 	
-	//*JULIOOOOOOOOOOOOOOOOO
-	
 
 	public boolean sacar(double valor) {
 		if(this.saldo < valor) {
-			//System.out.println("Saldo insuficiente!");
 			return false;
 		}
 		else {
@@ -27,7 +24,6 @@ public class Conta {
 	}
 	
 	public boolean transferir(double valor, Conta destinatario) {
-		//boolean retirou = this.sacar(valor);
 		if(this.sacar(valor)) {
 			destinatario.depositar(valor);
 			return true;
@@ -43,7 +39,6 @@ public class Conta {
 	public String toString() {
 		return "Conta [nome=" + nome + " " + sobrenome + ", numero=" + numero + ", saldo=" + saldo + "]";
 	}
-// heheh
 	public String getNome() {
 		return nome;
 	}
