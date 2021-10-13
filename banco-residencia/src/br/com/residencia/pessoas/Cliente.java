@@ -2,5 +2,4 @@ package br.com.residencia.pessoas;
 
 public class Cliente {
 //teste
-//numero 2
 }
