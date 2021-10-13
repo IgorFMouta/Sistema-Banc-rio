@@ -1,8 +1,8 @@
 package br.com.residencia.contas;
 
-public class Conta {
+public abstract class Conta {
 	
-	private String nome;
+	/*private String nome;
 	private int numero;
 	private String sobrenome;
 	private double saldo;
@@ -70,9 +70,11 @@ public class Conta {
 
 	public double getSaldo() {
 		return saldo;
-	}
+	}*/
 	
-	
+	String cpf;
+	double saldo;
+	int agencia;
 	
 	
 }
