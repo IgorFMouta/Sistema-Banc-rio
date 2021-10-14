@@ -12,7 +12,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		ContaCorrente contaCorrente = new ContaCorrente();
+	/*	ContaCorrente contaCorrente = new ContaCorrente();
 		ContaPoupanca contaPoupanca = new ContaPoupanca();
 		ContaCorrenteEspecial contaCorrenteEspecial = new ContaCorrenteEspecial();
 		ContaPoupancaEspecial contaPoupancaEspecial = new ContaPoupancaEspecial();
@@ -54,7 +54,7 @@ public class Principal {
 		}else {
 			System.out.println("Saldo insuficiente" + "\n" + usuario.toString() + "\n" + destinatario.toString());
 		}
-		sc.close();
+		sc.close();*/
 	}
 
 }
