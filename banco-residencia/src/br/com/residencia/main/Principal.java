@@ -22,6 +22,7 @@ public class Principal {
 		
 		
 		
+		/*
 		Conta usuario = new Conta();
 		usuario.setNome("Rafael");
 		usuario.setSobrenome("Baltar");
@@ -55,6 +56,8 @@ public class Principal {
 			System.out.println("Saldo insuficiente" + "\n" + usuario.toString() + "\n" + destinatario.toString());
 		}
 		sc.close();
+		
+		*/
 	}
 
 }

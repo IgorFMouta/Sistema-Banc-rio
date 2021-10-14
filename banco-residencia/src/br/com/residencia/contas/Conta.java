@@ -2,17 +2,13 @@ package br.com.residencia.contas;
 
 public abstract class Conta {
 	
-	/*private String nome;
-	private int numero;
-	private String sobrenome;
-	private double saldo;
-	
-	//*JULIOOOOOOOOOOOOOOOOO
-	
+	protected String cpf, agencia;
+	protected double saldo;
+
 
 	public boolean sacar(double valor) {
 		if(this.saldo < valor) {
-			//System.out.println("Saldo insuficiente!");
+			System.out.println("Saldo insuficiente!");
 			return false;
 		}
 		else {
@@ -38,12 +34,11 @@ public abstract class Conta {
 	}
 
 	
-
+	/*
 	@Override
 	public String toString() {
 		return "Conta [nome=" + nome + " " + sobrenome + ", numero=" + numero + ", saldo=" + saldo + "]";
 	}
-// heheh
 	public String getNome() {
 		return nome;
 	}
@@ -70,11 +65,10 @@ public abstract class Conta {
 
 	public double getSaldo() {
 		return saldo;
-	}*/
+	}
 	
-	String cpf;
-	double saldo;
-	int agencia;
+	*/
+	
 	
 	
 }
