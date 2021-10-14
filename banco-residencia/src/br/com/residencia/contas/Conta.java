@@ -40,14 +40,13 @@ public abstract class Conta {
 
 	*/
 	
-	protected String cpf;
-
-	protected double saldo;
-	protected int agencia;
-
-	public boolean sacar(double valor) {
+	private String cpf;
+	private String agencia;
+	private String numero;
+	private double saldo;
+	
+	private boolean sacar(double valor) {
 		if(this.saldo < valor) {
-			//System.out.println("Saldo insuficiente!");
 			return false;
 		}
 		else {
@@ -56,11 +55,11 @@ public abstract class Conta {
 		}
 	}
 
-	public void depositar(double valor) {
+	protected void depositar(double valor) {
 		this.saldo += valor;
 	}
 
-	public boolean transferir(double valor, Conta destinatario) {
+	protected boolean transferir(double valor, Conta destinatario) {
 		//boolean retirou = this.sacar(valor);
 		if(this.sacar(valor)) {
 			destinatario.depositar(valor);
@@ -79,14 +78,22 @@ public abstract class Conta {
 		this.cpf = cpf;
 	}
 	
-	public int getAgencia() {
+	public String getAgencia() {
 		return agencia;
 	}
 	
-	public void setAgencia(int agencia) {
+	public void setAgencia(String agencia) {
 		this.agencia = agencia;
 	}
 	
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
 	public double getSaldo() {
 		return saldo;
 	}
