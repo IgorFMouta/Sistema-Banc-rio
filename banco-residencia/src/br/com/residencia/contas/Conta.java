@@ -7,37 +7,7 @@ public abstract class Conta {
 	private String sobrenome;
 	private double saldo;
 	
-	//*JULIOOOOOOOOOOOOOOOOO
-	
-
-	public boolean sacar(double valor) {
-		if(this.saldo < valor) {
-			//System.out.println("Saldo insuficiente!");
-			return false;
-		}
-		else {
-			this.saldo -= valor;
-			return true;
-		}
-		
-	}
-	
-	public void depositar(double valor) {
-		this.saldo += valor;
-	}
-	
-	public boolean transferir(double valor, Conta destinatario) {
-		//boolean retirou = this.sacar(valor);
-		if(this.sacar(valor)) {
-			destinatario.depositar(valor);
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	
+	//*JULIOOOOOOOOOOOOOOOOO	
 
 	@Override
 	public String toString() {
@@ -71,8 +41,51 @@ public abstract class Conta {
 	*/
 	
 	protected String cpf;
+
 	protected double saldo;
 	protected int agencia;
+
+	public boolean sacar(double valor) {
+		if(this.saldo < valor) {
+			//System.out.println("Saldo insuficiente!");
+			return false;
+		}
+		else {
+			this.saldo -= valor;
+			return true;
+		}
+	}
+
+	public void depositar(double valor) {
+		this.saldo += valor;
+	}
+
+	public boolean transferir(double valor, Conta destinatario) {
+		//boolean retirou = this.sacar(valor);
+		if(this.sacar(valor)) {
+			destinatario.depositar(valor);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	public int getAgencia() {
+		return agencia;
+	}
+	
+	public void setAgencia(int agencia) {
+		this.agencia = agencia;
+	}
 	
 	public double getSaldo() {
 		return saldo;
