@@ -67,7 +67,8 @@ public class SistemaInterno {
 		contaIgor.depositar(1000);
 		
 		contaRafael.transferir(250, contaIgor);
-		System.out.println("Conta Rafael " + String.format("%.1f", contaRafael.getSaldo()) + "\nConta Igor " + String.format("%.1f", contaIgor.getSaldo()));*/
+		System.out.println("Conta Rafael " + String.format("%.1f", contaRafael.getSaldo()) + "\nConta Igor " + String.format("%.1f", contaIgor.getSaldo()));
+	*/
 	}
 
 }
