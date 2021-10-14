@@ -74,4 +74,7 @@ public abstract class Conta {
 	protected double saldo;
 	protected int agencia;
 	
+	public double getSaldo() {
+		return saldo;
+	}
 }
