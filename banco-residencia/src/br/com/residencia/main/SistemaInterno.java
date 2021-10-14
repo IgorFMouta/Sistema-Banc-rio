@@ -1,5 +1,6 @@
 package br.com.residencia.main;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 import br.com.residencia.contas.Conta;
@@ -8,19 +9,29 @@ import br.com.residencia.contas.ContaCorrenteEspecial;
 import br.com.residencia.contas.ContaPoupanca;
 import br.com.residencia.contas.ContaPoupancaEspecial;
 
-public class Principal {
+public class SistemaInterno {
 
 	public static void main(String[] args) {
 		
-		ContaCorrente contaCorrente = new ContaCorrente();
-		ContaPoupanca contaPoupanca = new ContaPoupanca();
-		ContaCorrenteEspecial contaCorrenteEspecial = new ContaCorrenteEspecial();
-		ContaPoupancaEspecial contaPoupancaEspecial = new ContaPoupancaEspecial();
+		ContaPoupanca poupanca = new ContaPoupanca();
+		DecimalFormat decimal = new DecimalFormat("0.00");
+		
+		poupanca.setNumero("33355-5");
+		poupanca.setAgencia("401");
+		
+		//informe os dias
+		poupanca.setDiaRendimento(120);
+		//na conta
+		poupanca.setSaldo(50);
 		
 		
-		
-		
-		
+		System.out.println("Saldo atual = " + poupanca.getSaldo());
+		if(poupanca.calcularNovoSaldo(0.005)) {
+			System.out.println("Rendimento aplicado\nNovo saldo é de = " + decimal.format(poupanca.getSaldo()));
+		}else {
+			System.out.println("Hoje não é dia de rendimento, novo saldo não calculado");
+		}
+	
 		
 		/*
 		Conta usuario = new Conta();
@@ -56,7 +67,6 @@ public class Principal {
 			System.out.println("Saldo insuficiente" + "\n" + usuario.toString() + "\n" + destinatario.toString());
 		}
 		sc.close();
-		
 		*/
 	}
 

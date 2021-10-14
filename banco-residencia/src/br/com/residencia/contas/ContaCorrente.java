@@ -5,12 +5,12 @@ public class ContaCorrente extends Conta{
 	private String tipo;
 
 	public boolean sacar(double valor) {
-		if(this.saldo < valor) {
+		if(this.getSaldo() < valor) {
 			//System.out.println("Saldo insuficiente!");
 			return false;
 		}
 		else {
-			this.saldo -= valor;
+			 -= valor;
 			return true;
 		}
 	}
