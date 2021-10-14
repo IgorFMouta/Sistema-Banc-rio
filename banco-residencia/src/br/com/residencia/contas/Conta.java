@@ -40,10 +40,10 @@ public abstract class Conta {
 
 	*/
 	
-	private String cpf;
-	private String agencia;
-	private String numero;
-	private double saldo;
+	protected String cpf;
+	protected String agencia;
+	protected String numero;
+	protected double saldo;
 	
 	private boolean sacar(double valor) {
 		if(this.saldo < valor) {

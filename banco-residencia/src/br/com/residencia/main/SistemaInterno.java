@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 import br.com.residencia.contas.Conta;
 import br.com.residencia.contas.ContaCorrente;
-import br.com.residencia.contas.ContaCorrenteEspecial;
 import br.com.residencia.contas.ContaPoupanca;
-import br.com.residencia.contas.ContaPoupancaEspecial;
 
 public class SistemaInterno {
 
@@ -55,6 +53,21 @@ public class SistemaInterno {
 			System.out.println("Saldo insuficiente" + "\n" + usuario.toString() + "\n" + destinatario.toString());
 		}
 		sc.close();*/
+		
+	/*	ContaCorrente contaRafael = new ContaCorrente();
+		contaRafael.setCpf("16789");
+		contaRafael.setNumero("12345");
+		contaRafael.setAgencia("001");
+		contaRafael.depositar(500);
+		
+		ContaCorrente contaIgor = new ContaCorrente();
+		contaIgor.setCpf("16569");
+		contaIgor.setNumero("12435");
+		contaIgor.setAgencia("001");
+		contaIgor.depositar(1000);
+		
+		contaRafael.transferir(250, contaIgor);
+		System.out.println("Conta Rafael " + String.format("%.1f", contaRafael.getSaldo()) + "\nConta Igor " + String.format("%.1f", contaIgor.getSaldo()));*/
 	}
 
 }
