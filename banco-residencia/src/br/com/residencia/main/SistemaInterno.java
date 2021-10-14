@@ -8,7 +8,7 @@ import br.com.residencia.contas.ContaCorrenteEspecial;
 import br.com.residencia.contas.ContaPoupanca;
 import br.com.residencia.contas.ContaPoupancaEspecial;
 
-public class Principal {
+public class SistemaInterno {
 
 	public static void main(String[] args) {
 		
