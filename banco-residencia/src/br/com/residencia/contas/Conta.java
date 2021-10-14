@@ -68,13 +68,13 @@ public abstract class Conta {
 		this.sobrenome = sobrenome;
 	}
 
+	*/
+	
+	protected String cpf;
+	protected double saldo;
+	protected int agencia;
+	
 	public double getSaldo() {
 		return saldo;
-	}*/
-	
-	String cpf;
-	double saldo;
-	int agencia;
-	
-	
+	}
 }
