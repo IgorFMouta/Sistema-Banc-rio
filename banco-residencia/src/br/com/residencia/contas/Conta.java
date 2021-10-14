@@ -40,10 +40,10 @@ public abstract class Conta {
 
 	*/
 	
-	private String cpf;
-	private String agencia;
-	private String numero;
-	private double saldo;
+	protected String cpf;
+	protected String agencia;
+	protected String numero;
+	protected double saldo;
 	
 	private boolean sacar(double valor) {
 		if(this.saldo < valor) {
@@ -70,31 +70,6 @@ public abstract class Conta {
 		}
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
 	
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	
-	public String getAgencia() {
-		return agencia;
-	}
-	
-	public void setAgencia(String agencia) {
-		this.agencia = agencia;
-	}
-	
-	public String getNumero() {
-		return numero;
-	}
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	public double getSaldo() {
-		return saldo;
-	}
 }
