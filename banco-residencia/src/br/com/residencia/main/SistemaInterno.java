@@ -25,17 +25,6 @@ public class SistemaInterno {
 		LeituraEscrita.leitor("entradaDados.txt");   
 		
 		
-		System.out.println("Digite a Data: (dd/MM/yyyy) ");
-		String stx = sc.next();
-		
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		Date dataUsuario = simpleDateFormat.parse(stx);
-		
-		System.out.println(simpleDateFormat.format(dataUsuario));
-		System.out.println(stx);
-	
-		
-		
 		
 	/*	ContaCorrente contaCorrente = new ContaCorrente();
 		ContaPoupanca contaPoupanca = new ContaPoupanca();
