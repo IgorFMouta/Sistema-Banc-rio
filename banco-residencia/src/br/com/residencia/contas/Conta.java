@@ -74,30 +74,11 @@ public abstract class Conta {
 	private String numero;
 	private double saldo;
 	
-	private boolean sacar(double valor) {
-		if(this.saldo < valor) {
-			return false;
-		}
-		else {
-			this.saldo -= valor;
-			return true;
-		}
-	}
+	public abstract boolean sacar(double valor);
 
-	protected void depositar(double valor) {
-		this.saldo += valor;
-	}
+	protected abstract void depositar(double valor);
 
-	protected boolean transferir(double valor, Conta destinatario) {
-		//boolean retirou = this.sacar(valor);
-		if(this.sacar(valor)) {
-			destinatario.depositar(valor);
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+	protected abstract boolean transferir(double valor, Conta destinatario);
 
 	public String getCpf() {
 		return cpf;
@@ -126,4 +107,10 @@ public abstract class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	
+	
 }
