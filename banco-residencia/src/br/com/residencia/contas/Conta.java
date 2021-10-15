@@ -74,6 +74,25 @@ public abstract class Conta {
 	private String numero;
 	private double saldo;
 	
+	
+	
+	public Conta(String cpf, String agencia, String numero, double saldo) {
+		super();
+		this.cpf = cpf;
+		this.agencia = agencia;
+		this.numero = numero;
+		this.saldo = saldo;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Conta [cpf=" + cpf + ", agencia=" + agencia + ", numero=" + numero + ", saldo=" + saldo + "]";
+	}
+
+
+
 	public abstract boolean sacar(double valor);
 
 	protected abstract void depositar(double valor);
