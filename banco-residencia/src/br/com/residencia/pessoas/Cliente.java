@@ -1,7 +1,7 @@
 package br.com.residencia.pessoas;
 
 public class Cliente {
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 }
 =======
 	String nome;
@@ -9,4 +9,5 @@ public class Cliente {
 	int senha;
 	
 }
->>>>>>> refs/remotes/origin/Romulo
+>>>>>>> refs/remotes/origin/Romulo*/
+}
