@@ -45,5 +45,7 @@ public class Diretor extends Gerente {
 
 			return arrayNomes;
 		}
+	}
 }
+
 
