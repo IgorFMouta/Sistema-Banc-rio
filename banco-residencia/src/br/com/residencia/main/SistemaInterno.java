@@ -20,18 +20,23 @@ public class SistemaInterno {
 		
 	/*	Cliente cliente1 = new Cliente(" Luciano"," Alencar"," 087.987.957-10", 1256);
 		System.out.println(cliente1.toString());*/
-		
+		Scanner sc = new Scanner (System.in);
 		
 		LeituraEscrita.leitor("entradaDados.txt");   
 		
 		
+		System.out.println("Digite a Data: (dd/MM/yyyy) ");
+		String stx = sc.next();
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		String stx = "07/11/1978";
+		Date dataUsuario = simpleDateFormat.parse(stx);
 		
-		Date dataUsuario = new simpleDateFormat.parse(stx);;
-		System.out.println(simpleDateFormat);
+		System.out.println(simpleDateFormat.format(dataUsuario));
+		System.out.println(stx);
 	
+		
+		
+		
 	/*	ContaCorrente contaCorrente = new ContaCorrente();
 		ContaPoupanca contaPoupanca = new ContaPoupanca();
 		ContaCorrenteEspecial contaCorrenteEspecial = new ContaCorrenteEspecial();
@@ -148,6 +153,8 @@ public class SistemaInterno {
 //					}
 		
 //				}
+	
+	sc.close();
 	}
 
 }
