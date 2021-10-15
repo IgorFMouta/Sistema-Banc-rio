@@ -1,8 +1,6 @@
 package br.com.residencia.contas;
 
-import java.util.Calendar;
-
-public class ContaPoupanca extends Conta {
+public abstract class ContaPoupanca extends Conta {
 	
 	/*
 	 * --- O que fazer? ---
@@ -13,8 +11,9 @@ public class ContaPoupanca extends Conta {
 	 * Podemos INSERIR mais dinheiro nessa conta e também SACAR
 	 * 
 	 */
-	
+	private final String tipo = "Conta Poupança";
 	private double DiaRendimento;
+
 
 	public double getDiaRendimento() {
 		return DiaRendimento;
@@ -24,23 +23,22 @@ public class ContaPoupanca extends Conta {
 		DiaRendimento = Diarendimento;
 	}
 
-	//Método para calulcar o novo saldo
+	
+	//Método para calcular o novo saldo
 	public boolean calcularNovoSaldo(double taxaRendimento) {
-		int cont = 1;
-		//Se o DiaRendimento for menor ou igual contador
-		if(DiaRendimento >= cont) {
-			while(DiaRendimento != cont) {
-				cont++;
-				//saldo += saldo * taxaRendimento
+		int contador = 1;
+		if(DiaRendimento >= contador) {
+			while(DiaRendimento != contador) {
 				this.setSaldo(this.getSaldo() + (this.getSaldo() * taxaRendimento));
+				contador++;
 			}
-		
-			
 			return true;
 		}
 		return false;	
 	}
 		
+	
+	
 	
 
 	
