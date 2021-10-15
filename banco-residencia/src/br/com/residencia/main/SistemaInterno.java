@@ -1,10 +1,12 @@
 package br.com.residencia.main;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import br.com.residencia.IO.LeituraEscrita;
 import br.com.residencia.contas.Conta;
 import br.com.residencia.contas.ContaCorrente;
 import br.com.residencia.contas.ContaPoupanca;
@@ -12,10 +14,15 @@ import br.com.residencia.pessoas.Cliente;
 
 public class SistemaInterno {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
-		Cliente cliente1 = new Cliente(" Luciano"," Alencar"," 087.987.957-10", 1256);
-		System.out.println(cliente1.toString());
+	/*	Cliente cliente1 = new Cliente(" Luciano"," Alencar"," 087.987.957-10", 1256);
+		System.out.println(cliente1.toString());*/
+		
+		
+		LeituraEscrita.leitor("entradaDados.txt");
+		
+		
 		
 	/*	ContaCorrente contaCorrente = new ContaCorrente();
 		ContaPoupanca contaPoupanca = new ContaPoupanca();

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class LeituraEscrita {
 
-	static final String PATH_BASICO = "./temp/";
+	static final String PATH_BASICO = ".\\banco-residencia\\temp\\";
 	final static String EXTENSAO = ".txt";
   
 	public static void leitor(String path) throws IOException {
