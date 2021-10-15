@@ -75,9 +75,8 @@ public class SistemaInterno {
 		
 		// ================ TESTE CONTA POUPANÇA =========================
 		
-//				//INSTANCIAS
-//				ContaPoupanca poupanca = new ContaPoupanca();
-//				DecimalFormat decimal = new DecimalFormat("0.00");
+				//INSTANCIAS
+//				ContaPoupanca poupanca = new ContaPoupanca();				DecimalFormat decimal = new DecimalFormat("0.00");
 //				Scanner ler = new Scanner(System.in);
 //				
 //				//ATRIBUTOS
@@ -85,8 +84,7 @@ public class SistemaInterno {
 //				int opcaoSimula;
 //				boolean simula = true;
 //				
-//				poupanca.setSaldo(50);
-//				
+//				poupanca.setSaldo(50);			
 //				//MENSAGEM INICIAL
 //				System.out.println("########### Conta Poupança ###########\n" 
 //				+ " \n------------- Informações da conta ------------"
@@ -107,18 +105,18 @@ public class SistemaInterno {
 //				switch (opcao) {
 //				case 1: {		
 //					while(simula == true) {
-//						System.out.println("########### Simulação de Rendimento ###########\n"
-//								+ "\nInforme a quantidade de dias que pretende simular: ");
-//						dias = ler.nextInt();
-//						poupanca.setDiaRendimento(dias);
-//						if(poupanca.calcularNovoSaldo(0.0005)) {	
+//							System.out.println("########### Bem vindo ao banco CH ###########\n"
+//								+ "\nInforme a operação que deseja realizar: ");
+//							dias = ler.nextInt();
+//							poupanca.setDiaRendimento(dias);
+//							if(poupanca.calcularNovoSaldo(0.0005)) {	
 //							System.out.println("--------- " + dias + " dias --------- " 
 //						    + "\nO seu saldo simulado seria = R$" + decimal.format(poupanca.getSaldo()));
 //						}		
-//						simula = false;
-//						System.out.println("Deseja simular novamente? \n(1) - SIM \n(2) - NÃO");
-//						opcaoSimula = ler.nextInt();
-//						if(opcaoSimula == 1) {
+//							simula = false;
+//							System.out.println("Deseja simular novamente? \n(1) - SIM \n(2) - NÃO");
+//							opcaoSimula = ler.nextInt();
+//							if(opcaoSimula == 1) {
 //							poupanca.setSaldo(50);
 //							simula = true;
 //						}
@@ -129,9 +127,8 @@ public class SistemaInterno {
 //					}	
 //					break;
 //					}
-//		
+		
 //				}
-
 	}
-}
 
+}
