@@ -19,7 +19,7 @@ public class SistemaInterno {
 		System.out.println(cliente1.toString());*/
 		
 		
-		LeituraEscrita.leitor("entradaDados.txt");
+		LeituraEscrita.leitor("entradaDados.txt");   
 		
 		
 		
