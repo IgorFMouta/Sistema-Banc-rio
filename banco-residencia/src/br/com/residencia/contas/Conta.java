@@ -7,13 +7,42 @@ public abstract class Conta {
 	private String sobrenome;
 	private double saldo;
 	
+<<<<<<< HEAD
 	//*JULIOOOOOOOOOOOOOOOOO	
+=======
+
+	public boolean sacar(double valor) {
+		if(this.saldo < valor) {
+			return false;
+		}
+		else {
+			this.saldo -= valor;
+			return true;
+		}
+		
+	}
+	
+	public void depositar(double valor) {
+		this.saldo += valor;
+	}
+	
+	public boolean transferir(double valor, Conta destinatario) {
+		if(this.sacar(valor)) {
+			destinatario.depositar(valor);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	
+>>>>>>> refs/remotes/origin/Romulo
 
 	@Override
 	public String toString() {
 		return "Conta [nome=" + nome + " " + sobrenome + ", numero=" + numero + ", saldo=" + saldo + "]";
 	}
-// heheh
 	public String getNome() {
 		return nome;
 	}

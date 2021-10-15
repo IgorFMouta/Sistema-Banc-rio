@@ -1,5 +1,8 @@
 package br.com.residencia.pessoas;
 
-public class Funcionario {
+public abstract class Funcionario {
 
+		private String nome;
+		private String cpf;
+		private int senha;
 }

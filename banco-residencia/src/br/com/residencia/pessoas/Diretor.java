@@ -9,8 +9,12 @@ public class Diretor extends Gerente {
 		
 		public static void nomesEmOrdem(String[] args) {
 			//nome dos clientes
-			String[] nomes = ordenaArray(new String[]{"Fulano", "Sicrano", "Beltrano", "Barabara", "Samy", "Fabiana" });
+			//String[] nomes = ordenaArray(new String[]{"Fulano", "Sicrano", "Beltrano", "Barabara", "Samy", "Fabiana" });
 		
+			
+			
+			
+			
 			//Imprime os nomes
 			for (int i = 0; i < nomes.length; i++) {
 				System.out.println(nomes[i]);
@@ -45,5 +49,7 @@ public class Diretor extends Gerente {
 
 			return arrayNomes;
 		}
+	}
 }
+
 
