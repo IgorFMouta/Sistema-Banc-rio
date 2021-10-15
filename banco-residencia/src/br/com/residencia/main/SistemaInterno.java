@@ -8,10 +8,14 @@ import javax.swing.JOptionPane;
 import br.com.residencia.contas.Conta;
 import br.com.residencia.contas.ContaCorrente;
 import br.com.residencia.contas.ContaPoupanca;
+import br.com.residencia.pessoas.Cliente;
 
 public class SistemaInterno {
 
 	public static void main(String[] args) {
+		
+		Cliente cliente1 = new Cliente(" Luciano"," Alencar"," 087.987.957-10", 1256);
+		System.out.println(cliente1.toString());
 		
 	/*	ContaCorrente contaCorrente = new ContaCorrente();
 		ContaPoupanca contaPoupanca = new ContaPoupanca();
