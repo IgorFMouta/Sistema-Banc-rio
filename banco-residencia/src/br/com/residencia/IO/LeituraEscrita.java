@@ -12,7 +12,7 @@ public class LeituraEscrita {
 
 	static final String PATH_BASICO = "./temp/";
 	final static String EXTENSAO = ".txt";
-
+  
 	public static void leitor(String path) throws IOException {
 		
 		try {
