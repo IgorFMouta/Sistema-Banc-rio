@@ -5,9 +5,8 @@ public class Diretor extends Gerente {
 	//a. Relatório com as informações de Nome, CPF e Agência de todos os clientes do sistema em ordem alfabética.
 	
 	
-	class TestOrdenacao {
-		
-		public static void nomesEmOrdem(String[] args) {
+	
+		public void nomesEmOrdem(String[] args) {
 			//nome dos clientes
 			//String[] nomes = ordenaArray(new String[]{"Fulano", "Sicrano", "Beltrano", "Barabara", "Samy", "Fabiana" });
 		
@@ -15,12 +14,12 @@ public class Diretor extends Gerente {
 			
 			
 			
-			//Imprime os nomes
+			/*Imprime os nomes
 			for (int i = 0; i < nomes.length; i++) {
 				System.out.println(nomes[i]);
-			}
+			}*/
 		}
-		public static String[] ordenaArray(String[] arrayNomes){
+		public String[] ordenaArray(String[] arrayNomes){
 			
 			String aux = "";
 			
@@ -48,8 +47,8 @@ public class Diretor extends Gerente {
 			}
 
 			return arrayNomes;
-		}
 	}
 }
+
 
 
