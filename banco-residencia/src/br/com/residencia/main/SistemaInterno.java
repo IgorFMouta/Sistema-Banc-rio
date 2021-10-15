@@ -2,6 +2,9 @@ package br.com.residencia.main;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -13,7 +16,7 @@ import br.com.residencia.pessoas.Cliente;
 
 public class SistemaInterno {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ParseException {
 		
 	/*	Cliente cliente1 = new Cliente(" Luciano"," Alencar"," 087.987.957-10", 1256);
 		System.out.println(cliente1.toString());*/
@@ -23,6 +26,12 @@ public class SistemaInterno {
 		
 		
 		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		String stx = "07/11/1978";
+		
+		Date dataUsuario = new simpleDateFormat.parse(stx);;
+		System.out.println(simpleDateFormat);
+	
 	/*	ContaCorrente contaCorrente = new ContaCorrente();
 		ContaPoupanca contaPoupanca = new ContaPoupanca();
 		ContaCorrenteEspecial contaCorrenteEspecial = new ContaCorrenteEspecial();
