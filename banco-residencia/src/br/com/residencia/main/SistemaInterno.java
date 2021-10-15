@@ -3,7 +3,6 @@ package br.com.residencia.main;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 import br.com.residencia.IO.LeituraEscrita;
