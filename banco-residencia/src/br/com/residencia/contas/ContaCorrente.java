@@ -2,10 +2,11 @@ package br.com.residencia.contas;
 
 public class ContaCorrente extends Conta{
 
-	private final String tipo = "Conta Corrente";
+	private final String tipoConta = "Conta Corrente";
 
 	double saldo;
-	protected boolean sacar(double valor) {
+	@Override
+	public boolean sacar(double valor) {
 		if(getSaldo() < valor) {
 			return false;
 		}
@@ -16,11 +17,13 @@ public class ContaCorrente extends Conta{
 		}
 	}
 
+	@Override
 	public void depositar(double valor) {
 		saldo = getSaldo() + valor;
 		setSaldo(saldo - 0.10);
 	}
-
+	
+	@Override
 	public boolean transferir(double valor, Conta destinatario) {
 		if(this.sacar(valor)) {
 			destinatario.depositar(valor + 0.20);
@@ -31,35 +34,5 @@ public class ContaCorrente extends Conta{
 		}
 	}
 	
-	public String getCpf() {
-		return cpf;
-	}
-	
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	
-	public String getAgencia() {
-		return agencia;
-	}
-	
-	public void setAgencia(String agencia) {
-		this.agencia = agencia;
-	}
-	
-	public String getNumero() {
-		return numero;
-	}
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	public double getSaldo() {
-		return saldo;
-	}
-	
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
 }
