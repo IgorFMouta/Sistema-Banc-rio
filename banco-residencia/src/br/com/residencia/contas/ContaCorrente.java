@@ -2,7 +2,21 @@ package br.com.residencia.contas;
 
 public class ContaCorrente extends Conta{
 
-	private final String tipoConta = "Conta Corrente";
+	private String tipoConta = "Corrente";
+
+	public ContaCorrente(String cpf, String agencia, String numero, double saldo, String tipoConta) {
+		super(cpf, agencia, numero, saldo);
+		this.tipoConta = tipoConta;
+	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Conta [" + tipoConta + ", cpf=" + getCpf() + ", agencia=" + getAgencia() + ", numero=" + getNumero() + ", saldo=" + getSaldo() + "ContaCorrente" + "]";
+	}
+
+
 
 	double saldo;
 	@Override

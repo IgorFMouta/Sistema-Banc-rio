@@ -1,7 +1,15 @@
 package br.com.residencia.contas;
 
 public class ContaPoupanca extends Conta {
-		
+	
+		public ContaPoupanca() {
+			
+		}
+	
+		public ContaPoupanca(String cpf, String agencia, String numero, double saldo) {
+		super(cpf, agencia, numero, saldo);
+		}
+
 		/*
 		 * --- O que fazer? ---
 		 * Uma conta poupança faz com que seu dinheiro tenha um rendimento extra
