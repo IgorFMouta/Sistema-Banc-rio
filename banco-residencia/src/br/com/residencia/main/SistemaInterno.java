@@ -18,9 +18,8 @@ public class SistemaInterno {
 
 	public static void main(String[] args) throws IOException, ParseException {
 		
-	/*	Cliente cliente1 = new Cliente(" Luciano"," Alencar"," 087.987.957-10", 1256);
-		System.out.println(cliente1.toString());*/
-		Scanner sc = new Scanner (System.in);
+			
+		//Scanner sc = new Scanner (System.in);
 		
 		LeituraEscrita.leitor("entradaDados.txt");   
 		
@@ -143,7 +142,7 @@ public class SistemaInterno {
 		
 //				}
 	
-	sc.close();
+//	sc.close();
 	}
 
 }

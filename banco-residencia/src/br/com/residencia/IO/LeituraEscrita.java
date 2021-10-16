@@ -23,9 +23,9 @@ public class LeituraEscrita {
 				String linha = buffRead.readLine();
 				if (linha != null) {
 					String[] info = linha.split(";");
-					//ENUM
-					System.out.println(info[0] + "\n" + info[1] + "\n" + info[2] + "\n" + info[3] + "\n" 
-					+ info[4] + "\n" + info[5]);
+					
+					System.out.println(info[0] + "\t" + info[1] + "\t" + info[2] + "\t" + info[3] + "\t" 
+					+ info[4]);
 				} else {
 					break;					
 				}
@@ -37,4 +37,22 @@ public class LeituraEscrita {
 		}
 
 	}
+	
+	public static void escritor(String path) throws IOException {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Escreva o nome do arquivo: ");
+		String nome = sc.next();
+
+		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + nome + EXTENSAO));
+		String linha = "";
+
+		System.out.println("Escreva algo: ");
+		linha = sc.next();
+		buffWrite.append(linha + "\n");
+		buffWrite.close();
+
+		sc.close();
+	}
+
 }
