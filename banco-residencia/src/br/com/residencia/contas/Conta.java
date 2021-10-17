@@ -1,5 +1,8 @@
 package br.com.residencia.contas;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class Conta {
 	
 	/*private String nome;
@@ -69,14 +72,21 @@ public abstract class Conta {
 
 	*/
 	
+	private String tipoConta;
+
 	private String cpf;
 	private String agencia;
 	private String numero;
-	private double saldo;
+	private Double saldo;
+	private Double SAQUE = 0.1d, DEPOSITO = 0.1d, TRANSFERENCIA = 0.2d;
 	
+	public static Map<String, Conta> mapaContas = new HashMap<>();
 	
+	public Conta() {
+		super();
+	}
 	
-	public Conta(String cpf, String agencia, String numero, double saldo) {
+	public Conta(String TipoConta, String cpf, String agencia, String numero, Double saldo) {
 		super();
 		this.cpf = cpf;
 		this.agencia = agencia;
@@ -92,12 +102,19 @@ public abstract class Conta {
 	}
 
 
-
 	public abstract boolean sacar(double valor);
 
-	protected abstract void depositar(double valor);
+	protected abstract boolean depositar(double valor);
 
 	protected abstract boolean transferir(double valor, Conta destinatario);
+	
+	public String getTipoConta() {
+		return tipoConta;
+	}
+
+	public void setTipoConta(String tipoConta) {
+		this.tipoConta = tipoConta;
+	}
 
 	public String getCpf() {
 		return cpf;

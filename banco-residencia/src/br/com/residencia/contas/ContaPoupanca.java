@@ -1,14 +1,6 @@
 package br.com.residencia.contas;
 
 public class ContaPoupanca extends Conta {
-	
-		public ContaPoupanca() {
-			
-		}
-	
-		public ContaPoupanca(String cpf, String agencia, String numero, double saldo) {
-		super(cpf, agencia, numero, saldo);
-		}
 
 		/*
 		 * --- O que fazer? ---
@@ -19,10 +11,22 @@ public class ContaPoupanca extends Conta {
 		 * Podemos INSERIR mais dinheiro nessa conta e também SACAR
 		 * 
 		 */
-		private final String tipo = "Conta Poupança";
+		private String tipoConta = "Poupança";
 		private double DiaRendimento;
 
+		public ContaPoupanca() {
+			super();
+		}
 
+		public ContaPoupanca(String tipoConta, String cpf, String agencia, String numero, Double saldo) {
+			super(tipoConta, cpf, agencia, numero, saldo);
+		}
+
+		@Override
+		public String toString() {
+			return "Conta [" + tipoConta + ", cpf=" + getCpf() + ", agencia=" + getAgencia() + ", numero=" + getNumero() + ", saldo=" + getSaldo() + "ContaCorrente" + "]";
+		}
+		
 		public double getDiaRendimento() {
 			return DiaRendimento;
 		}
@@ -45,25 +49,38 @@ public class ContaPoupanca extends Conta {
 			return false;	
 		}
 
+		double saldo;
 		@Override
 		public boolean sacar(double valor) {
-			return false;
+			if(getSaldo() < valor || valor < 0) {
+				return false;
+			}
+			else {
+				saldo = getSaldo() - valor;
+				setSaldo(saldo - 0.10);
+				return true;
+			}
 		}
 
 		@Override
-		protected void depositar(double valor) {
-			
+		public boolean depositar(double valor) {
+			if(valor > 0) {
+				saldo = getSaldo() + valor;
+				setSaldo(saldo - 0.10);
+				return true;
+			}else {
+				return false;
+			}
 		}
-
 		@Override
-		protected boolean transferir(double valor, Conta destinatario) {
-			return false;
+		public boolean transferir(double valor, Conta destinatario) {
+			if(this.sacar(valor)) {
+				destinatario.depositar(valor + 0.20);
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
-			
-		
-		
-		
-
-		
 }
 

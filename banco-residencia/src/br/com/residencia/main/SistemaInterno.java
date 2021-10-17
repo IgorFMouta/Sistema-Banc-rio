@@ -22,7 +22,7 @@ public class SistemaInterno {
 		Scanner sc = new Scanner (System.in);
 		
 		
-		System.out.println("========================================================================================================="
+		System.out.println("=========================================================================================================\n"
 				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  +\r\n"
 				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:              @@@@#              :@@@@@@@  +\r\n"
 				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#                                      :@@@@@  +\r\n"
@@ -49,7 +49,127 @@ public class SistemaInterno {
 		sc.nextLine();
 		
 		
-		
+		// ================== TESTE CONTA POUPANÇA =========================
+
+				// INSTANCIAS
+				ContaPoupanca poupanca = new ContaPoupanca();
+
+				// String cpf, String agencia, String numero, double saldo
+
+				DecimalFormat decimal = new DecimalFormat("0.00");
+				Scanner ler = new Scanner(System.in);
+
+				// ATRIBUTOS
+				int opcao, dias;
+				int opcaoSimula;
+				double saque, deposito, transfere;
+				boolean simula = true;
+
+				double saldo = 50;
+				poupanca.setSaldo(saldo);
+
+//				// MENSAGEM INICIAL
+//				System.out.println("####################################################"
+//						+ "\n################# CONTA POUPANÇA ###################"
+//						+ "\n####################################################"
+//						+ " \n\n-------------------- INFORMAÇÕES -------------------" + "\nNome        ====> Pessoa"
+//						+ "\nN° Conta    ====> 05650-5" + "\nN° Agencia  ====> 401" + "\nSaldo atual ====> R$"
+//						+ decimal.format(poupanca.getSaldo()) + "\n\n===================================================");
+		//
+//				
+				do {
+					// MENSAGEM INICIAL
+					
+					System.out.println("\n\n####################################################"
+							+ "\n################# CONTA POUPANÇA ###################"
+							+ "\n####################################################"
+							+ " \n\n-------------------- INFORMAÇÕES -------------------" + "\nNome        ====> Pessoa"
+							+ "\nN° Conta    ====> 05650-5" + "\nN° Agencia  ====> 401" + "\nSaldo atual ====> R$"
+							+ decimal.format(poupanca.getSaldo()) + "\n\n===================================================");
+					
+					// INTERAÇÃO
+					System.out.println("\nDIGITE A OPERAÇÃO QUE DESEJA REALIZAR" + "\n(1) - SIMULAÇÃO DE RENDIMENTOS"
+							+ "\n(2) - SACAR " 
+							+ "\n(3) - DEPOSITAR " 
+							+ "\n(4) - TRANSFERIR " 
+							+ "\n(5) - EXTRATO"
+							+ "\n(6) - ENCERRAR ");
+					opcao = ler.nextInt();
+					simula = true;
+
+					switch (opcao) {
+					case 1: {
+						while (simula == true) {
+							System.out.println("########### SIMULAÇÃO DE RENDIMENTOS ###########"
+									+ "\n\nInforme a quantidade de dias que pretende simular: ");
+							dias = ler.nextInt();
+							poupanca.setDiaRendimento(dias);
+							if (poupanca.calcularNovoSaldo(0.005)) {
+								System.out.println("--------- " + dias + " dias --------- "
+										+ "\n\nO seu saldo simulado seria = R$" + decimal.format(poupanca.getSaldo()));
+							}
+							//simula = false;
+							System.out.println("Deseja simular novamente? \n(1) - SIM \n(2) - NÃO");
+							opcaoSimula = ler.nextInt();
+							if (opcaoSimula == 1) {
+								poupanca.setSaldo(saldo);
+								simula = true;
+							}else {
+								poupanca.setSaldo(saldo);
+								break;
+							}
+						}
+						break;
+					} // TERMINA O CASE 1
+
+					case 2: {
+						System.out.println("\n########### SAQUE ###########" + "\n\nDigite o valor do saque: ");
+						saque = ler.nextDouble();
+						if(poupanca.sacar(saque) == true) {
+							System.out.println(
+									"Seu novo saldo = R$" + decimal.format(poupanca.getSaldo()));		
+						}else {
+							System.out.println("\n--- Operação Inválida - SAQUE MAIOR QUE O SALDO ---\n");
+						}
+						break;
+					} // TERMINA O CASE 2
+
+					case 3: {
+						System.out.println("\n########### DEPOSITAR ###########" + "\n\nDigite o valor do deposito: ");
+						deposito = ler.nextDouble();
+						poupanca.depositar(deposito);
+						System.out.println("Seu novo saldo = R$" + decimal.format(poupanca.getSaldo()));
+						break;
+					} // TERMINA O CASE 3
+
+					case 4: {
+						System.out.println("\n########### TRANSFERIR ###########" + "\n\nDigite o valor da transferência: ");
+						transfere = ler.nextDouble();
+						System.out.println("Digite o CPF do destinatário: ");
+						break;
+					} // TERMINA O CASE 4
+
+					case 5: {
+						//PARTE DO EXTRATO
+						
+						
+					}		
+					case 6: {
+						System.out.println("---------------");
+						System.exit(0);
+					}
+					
+					
+					default:
+						if(opcao > 5 || opcao < 1) {
+							break;
+						}
+						//throw new IllegalArgumentException("VALOR DIGITADO INCORRETO " + opcao);
+					}
+					
+					
+				}
+				while (opcao != 0);
 		
 		
 	//	LeituraEscrita.leitor("entradaDados.txt");   

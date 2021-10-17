@@ -8,6 +8,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import br.com.residencia.contas.Conta;
+import br.com.residencia.contas.ContaCorrente;
+import br.com.residencia.contas.ContaPoupanca;
+import br.com.residencia.enums.ContaTipoEnum;
+
 public class LeituraEscrita {
 
 	static final String PATH_BASICO = ".\\banco-residencia\\temp\\";
@@ -23,12 +28,16 @@ public class LeituraEscrita {
 				String linha = buffRead.readLine();
 				if (linha != null) {
 					String[] info = linha.split(";");
-					
-					System.out.println(info[0] + "\t" + info[1] + "\t" + info[2] + "\t" + info[3] + "\t" 
-					+ info[4]);
-				} else {
-					break;					
-				}
+					if(info[0].equalsIgnoreCase(ContaTipoEnum.CONTA_CORRENTE.getTipoConta())) {
+						ContaCorrente cc = new ContaCorrente(info[0], info[1], info[2], info[3], Double.parseDouble(info[4]));
+						Conta.mapaContas.put(info[1], cc);
+					}if(info[0].equalsIgnoreCase(ContaTipoEnum.CONTA_POUPANCA.getTipoConta())) {
+						ContaPoupanca cp = new ContaPoupanca(info[0], info[1], info[2], info[3], Double.parseDouble(info[4]));
+						Conta.mapaContas.put(info[1], cp);
+					}
+					else {
+						break;					
+					}
 			}
 			buffRead.close();
 			
