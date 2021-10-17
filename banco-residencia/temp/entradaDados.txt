@@ -1,3 +1,16 @@
+//tipoConta;agencia;numeroConta;saldo;cpf
+corrente;1;1;1000.00;123
+//tipoConta;agencia;numeroConta;saldo;cpf
+poupanca;1;2;2000.00;125
+//tipoConta;nome;cpf;senha;agencia;numeroConta
+cliente;Igor;123;000;1;1
+//tipoConta;nome;cpf;senha;agencia;numeroConta;salario;agenciaResponsavel
+gerente;Rafael;125;00;1;2;3000.00;1
+//tipoConta;nome;cpf;senha;agencia;numeroConta;salario
+diretor;Jean;456;0;3;3;5000.00
+//tipoConta;nome;cpf;senha;agencia;numeroConta;salario
+presidente;Kelvin;789;0000;4;4;10000.00
+
 cliente         ;corrente;Chaves do Oito      ;123.456.789-10;10000
 cliente         ;corrente;Chiquinha Antonieta ;132.456.789-11;1132
 cliente         ;corrente;Jaiminho Carteiro   ;145.456.789-12;2118
