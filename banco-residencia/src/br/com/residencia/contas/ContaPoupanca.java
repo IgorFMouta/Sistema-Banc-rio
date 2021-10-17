@@ -12,7 +12,9 @@ public class ContaPoupanca extends Conta {
 		 * 
 		 */
 		private String tipoConta = "Poupança";
-		private double DiaRendimento;
+		private Double DiaRendimento;
+		private Integer totalSaques = 0, totalDepositos = 0, totalTransferencias = 0;
+		private Double totalTributado1 = 0.1;
 
 		public ContaPoupanca() {
 			super();
@@ -56,31 +58,43 @@ public class ContaPoupanca extends Conta {
 				return false;
 			}
 			else {
-				saldo = getSaldo() - valor;
-				setSaldo(saldo - 0.10);
+				if((getSaldo() - totalTributado1) >= 0) {
+					saldo = getSaldo() - valor;
+					setSaldo(saldo - totalTributado1);
+					++ totalSaques;
+				}else {
+					System.out.println("Não foi possível realizar a operação!");
+				}
+				this.totalTributado1 = this.totalTributado1 * this.totalSaques;
 				return true;
 			}
 		}
 
 		@Override
 		public boolean depositar(double valor) {
-			if(valor > 0) {
-				saldo = getSaldo() + valor;
-				setSaldo(saldo - 0.10);
-				return true;
-			}else {
+			if(valor < 0) {
 				return false;
+			}else {
+				if((getSaldo() + totalTributado1) >= 0) {
+					saldo = getSaldo() + valor;
+					setSaldo(saldo - 0.10);
+					++ totalDepositos;
+				}
+				this.totalTributado1 = this.totalTributado1 * this.totalDepositos;
+				return true;
 			}
 		}
 		@Override
 		public boolean transferir(double valor, Conta destinatario) {
-			if(this.sacar(valor)) {
-				destinatario.depositar(valor + 0.20);
-				return true;
-			}
-			else {
+			if(this.sacar(valor) == false) {
 				return false;
 			}
+			else {
+				destinatario.depositar(valor + 0.20);
+				++ totalTransferencias;
+			}
+			this.totalTributado1 = this.totalTributado1 * this.totalTransferencias;
+			return true;
 		}
 }
 
