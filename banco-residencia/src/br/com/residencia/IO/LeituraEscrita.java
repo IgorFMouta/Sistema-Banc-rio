@@ -15,14 +15,11 @@ import br.com.residencia.contas.ContaCorrente;
 import br.com.residencia.contas.ContaPoupanca;
 import br.com.residencia.enums.ContaTipoEnum;
 import br.com.residencia.enums.PessoasTipoEnum;
-<<<<<<< HEAD
+
 import br.com.residencia.pessoas.Cliente;
 import br.com.residencia.pessoas.Diretor;
 import br.com.residencia.pessoas.Gerente;
 import br.com.residencia.pessoas.Presidente;
-=======
-import br.com.residencia.pessoas.Gerente;
->>>>>>> refs/heads/main
 import br.com.residencia.pessoas.Usuarios;
 
 public class LeituraEscrita {
@@ -46,13 +43,14 @@ public class LeituraEscrita {
 					}if(info[0].equalsIgnoreCase(ContaTipoEnum.CONTA_POUPANCA.getTipoConta())) {
 						ContaPoupanca cp = new ContaPoupanca(info[0], info[1], info[2], info[3], Double.parseDouble(info[4]));
 						Conta.mapaContas.put(info[1], cp);
-<<<<<<< HEAD
+
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.CLIENTE.getTipoUsuario())) {
-						Cliente cliente = new Cliente(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]));
+						Cliente cliente = new Cliente(info[0], info[1], info[2], info[3], info[4]);
 						Usuarios.mapaUsuarios.put(info[0], cliente);
 						Usuarios.OrdenaUsuarios.put(info[0], cliente);
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.GERENTE.getTipoUsuario())) {
-						Gerente gerente = new Gerente(info[0], info[1], info[2], Double.parseDouble(info[3]), Integer.parseInt(info[4]), Integer.parseInt(info[5]));
+						Gerente gerente = new Gerente(info[0], info[1], info[2], info[3], info[4], Integer.parseInt(info[5]), 
+								Integer.parseInt(info[6]), Double.parseDouble(info[7]), Double.parseDouble(info[8]), Integer.parseInt(info[9]));
 						Usuarios.mapaUsuarios.put(info[0], gerente);
 						Usuarios.OrdenaUsuarios.put(info[0], gerente);
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.DIRETOR.getTipoUsuario())) {
@@ -63,31 +61,19 @@ public class LeituraEscrita {
 						Presidente presidente = new Presidente(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]), Integer.parseInt(info[5]));
 						Usuarios.mapaUsuarios.put(info[2], presidente);
 						Usuarios.OrdenaUsuarios.put(info[0], presidente);
-=======
-			//		}if(info[0].equalsIgnoreCase(PessoasTipoEnum.GERENTE.getTipoUsuario())) {
-				//		Gerente gere = new Gerente(info[0], info[1], info[3],info[4],info[5], Integer.parseInt(info[6], Integer.parseInt(info[7], 
-				//				Double.parseDouble(info[8], Double.parseDouble(info[9])))));
->>>>>>> refs/heads/main
+
 					}
-					else {
+				}else {
 						break;					
 					}
-<<<<<<< HEAD
-				}
-				buffRead.close();
-			
-			} 
-		}catch(FileNotFoundException e) {
-=======
 			}
-			buffRead.close();
-		  }
-	} catch(FileNotFoundException e) {
->>>>>>> refs/heads/main
-			System.out.println("Arquivo não encontrado no local especificado " + PATH_BASICO + path);
-		}
+				buffRead.close();
+				
+		}catch(FileNotFoundException e) {
+				System.out.println("Arquivo não encontrado no local especificado " + PATH_BASICO + path);
+			}
 
-	}
+		}
 	
 	public static void escritor(String path) throws IOException {
 

@@ -11,10 +11,10 @@ public class Cliente extends Usuarios{
 	String sobrenome;
 	String cpf;
 	String cargo;
-	Integer senha;
+	String senha;
 	
 	
-	public Cliente(String cargo, String nome, String sobrenome, String cpf, Integer senha) {
+	public Cliente(String cargo, String nome, String sobrenome, String cpf, String senha) {
 		//super();
 		this.cargo = cargo;
 		this.nome = nome;
@@ -57,11 +57,11 @@ public class Cliente extends Usuarios{
 		this.cpf = cpf;
 	}
 	
-	public Integer getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 	
-	public void setSenha(int senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
