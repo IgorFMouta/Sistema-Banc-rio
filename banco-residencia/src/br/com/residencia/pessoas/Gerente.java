@@ -2,21 +2,20 @@ package br.com.residencia.pessoas;
 
 public class Gerente extends Funcionario {
 
-	protected int senha;
-	protected int numFuncionarios;
+	protected String senha;
+	protected Integer numFuncionarios;
 
-	@Override
-	public double getBonificacao() {
-		return this.salario * 0.15 + 1000 + super.getSalario();
-	}
+//	@Override
+//	public double getBonificacao() {
+//		return this.salario * 0.15 + 1000 + super.getSalario();
+//	}
 
 //	public double getBonificacao() {
 //		return super.getBonificacao() + 1000 + super.getSalario();
 //	}
 
-	public Gerente(String cargo, String nome, String cpf, double salario, int senha, int numFuncionarios) {
-		super(cargo, nome, cpf, salario);
-		this.senha = senha;
+	public Gerente(String cargo,String nome,String sobrenome,String cpf,String senha,Integer agencia,Integer numeroConta, Double saldo,Double salario, Integer numFuncionarios) {
+		super(cargo,nome,sobrenome,cpf,senha,agencia,numeroConta,saldo,salario);
 		this.numFuncionarios = numFuncionarios;
 	}
 
@@ -24,24 +23,24 @@ public class Gerente extends Funcionario {
 
 	}
 
-	public int getNumFuncionarios() {
+	public Integer getNumFuncionarios() {
 		return numFuncionarios;
 	}
 
-	public void setNumFuncionarios(int numFuncionarios) {
+	public void setNumFuncionarios(Integer numFuncionarios) {
 		this.numFuncionarios = numFuncionarios;
 	}
 
-	public int getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 
-	public boolean autenticar(int senha) {
+	public boolean autenticar(String senha) {
 		if (this.senha == senha) {
-//			System.out.println("Acesso Permitido!");
+//			System.out.prIntegerln("Acesso Permitido!");
 			return true;
 		} else {
-//			System.out.println("Acesso Negado!");
+//			System.out.prIntegerln("Acesso Negado!");
 			return false;
 		}
 	}

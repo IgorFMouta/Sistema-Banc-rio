@@ -12,6 +12,9 @@ import br.com.residencia.contas.Conta;
 import br.com.residencia.contas.ContaCorrente;
 import br.com.residencia.contas.ContaPoupanca;
 import br.com.residencia.enums.ContaTipoEnum;
+import br.com.residencia.enums.PessoasTipoEnum;
+import br.com.residencia.pessoas.Gerente;
+import br.com.residencia.pessoas.Usuarios;
 
 public class LeituraEscrita {
 
@@ -34,14 +37,17 @@ public class LeituraEscrita {
 					}if(info[0].equalsIgnoreCase(ContaTipoEnum.CONTA_POUPANCA.getTipoConta())) {
 						ContaPoupanca cp = new ContaPoupanca(info[0], info[1], info[2], info[3], Double.parseDouble(info[4]));
 						Conta.mapaContas.put(info[1], cp);
+			//		}if(info[0].equalsIgnoreCase(PessoasTipoEnum.GERENTE.getTipoUsuario())) {
+				//		Gerente gere = new Gerente(info[0], info[1], info[3],info[4],info[5], Integer.parseInt(info[6], Integer.parseInt(info[7], 
+				//				Double.parseDouble(info[8], Double.parseDouble(info[9])))));
 					}
 					else {
 						break;					
 					}
 			}
 			buffRead.close();
-			
-		} catch(FileNotFoundException e) {
+		  }
+	} catch(FileNotFoundException e) {
 			System.out.println("Arquivo não encontrado no local especificado " + PATH_BASICO + path);
 		}
 

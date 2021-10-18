@@ -1,6 +1,6 @@
 package br.com.residencia.pessoas;
 
-public class Funcionario {
+public class Funcionario extends Usuarios {
 
 	protected String cargo;
 	protected String nome;
@@ -8,26 +8,24 @@ public class Funcionario {
 	protected double salario;
 	protected double saldo;
 
-	public double getBonificacao() {
+	/*public double getBonificacao() {
 		return this.salario * 0.10 + 1000;
 	}
 
 	public double getSalario() {
 		return salario;
-	}
+	*/
+	public Funcionario() {
+	       super();
+		}
 
-	public Funcionario(String cargo, String nome, String cpf, double salario) {
-		this.cargo = cargo;
+	public Funcionario(String cargo,String nome,String sobrenome,String cpf,String senha,Integer agencia,Integer numeroConta, Double saldo,Double salario) {
+		super(cargo,nome,sobrenome,cpf,senha,agencia,numeroConta);
 		this.saldo = saldo;
-		this.nome = nome;
-		this.cpf = cpf;
 		this.salario = salario;
 	}
 
-	public Funcionario() {
-
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Funcionario [cargo=" + cargo + ", nome=" + nome + ", cpf=" + cpf + ", saldo=" + saldo+"]";
