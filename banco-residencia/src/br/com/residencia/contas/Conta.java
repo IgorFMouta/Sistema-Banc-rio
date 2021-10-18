@@ -104,9 +104,9 @@ public abstract class Conta {
 
 	public abstract boolean sacar(double valor);
 
-	protected abstract boolean depositar(double valor);
+	public abstract boolean depositar(double valor);
 
-	protected abstract boolean transferir(double valor, Conta destinatario);
+	public abstract boolean transferir(double valor, Conta destinatario);
 	
 	public String getTipoConta() {
 		return tipoConta;

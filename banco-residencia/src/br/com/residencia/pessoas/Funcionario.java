@@ -1,6 +1,6 @@
 package br.com.residencia.pessoas;
 
-public class Funcionario {
+public class Funcionario extends Usuarios{
 
 	protected String cargo;
 	protected String nome;
@@ -16,11 +16,10 @@ public class Funcionario {
 		return salario;
 	}
 
-	public Funcionario(String cargo, String nome, String cpf, double salario) {
+	public Funcionario(String tipoUsuarios, String nome, String cpf, String senha, Integer agencia, Integer numeroConta, String cargo, Double saldo, Double salario) {
+		super(tipoUsuarios, nome, cpf, senha, agencia, numeroConta);
 		this.cargo = cargo;
 		this.saldo = saldo;
-		this.nome = nome;
-		this.cpf = cpf;
 		this.salario = salario;
 	}
 

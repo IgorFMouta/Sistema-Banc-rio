@@ -61,7 +61,7 @@ public class ContaPoupanca extends Conta {
 				if((getSaldo() - totalTributado1) >= 0) {
 					saldo = getSaldo() - valor;
 					setSaldo(saldo - totalTributado1);
-					++ totalSaques;
+					totalSaques++;
 				}else {
 					System.out.println("Não foi possível realizar a operação!");
 				}
@@ -78,7 +78,7 @@ public class ContaPoupanca extends Conta {
 				if((getSaldo() + totalTributado1) >= 0) {
 					saldo = getSaldo() + valor;
 					setSaldo(saldo - 0.10);
-					++ totalDepositos;
+					totalDepositos++;
 				}
 				this.totalTributado1 = this.totalTributado1 * this.totalDepositos;
 				return true;
@@ -91,7 +91,7 @@ public class ContaPoupanca extends Conta {
 			}
 			else {
 				destinatario.depositar(valor + 0.20);
-				++ totalTransferencias;
+				totalTransferencias++;
 			}
 			this.totalTributado1 = this.totalTributado1 * this.totalTransferencias;
 			return true;
