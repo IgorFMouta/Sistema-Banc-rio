@@ -2,10 +2,29 @@ package br.com.residencia.pessoas;
 
 public class Gerente extends Funcionario {
 
+<<<<<<< HEAD
 	protected int numFuncionarios;
+=======
+	protected String senha;
+	protected Integer numFuncionarios;
+>>>>>>> refs/heads/main
 
+<<<<<<< HEAD
 	public Gerente(String cargo,String nome,String sobrenome,String cpf,String senha,Integer agencia,Integer numeroConta, Double saldo,Double salario, Integer numFuncionarios) {
 		super();
+=======
+//	@Override
+//	public double getBonificacao() {
+//		return this.salario * 0.15 + 1000 + super.getSalario();
+//	}
+
+//	public double getBonificacao() {
+//		return super.getBonificacao() + 1000 + super.getSalario();
+//	}
+
+	public Gerente(String cargo,String nome,String sobrenome,String cpf,String senha,Integer agencia,Integer numeroConta, Double saldo,Double salario, Integer numFuncionarios) {
+		super(cargo,nome,sobrenome,cpf,senha,agencia,numeroConta,saldo,salario);
+>>>>>>> refs/heads/main
 		this.numFuncionarios = numFuncionarios;
 	}
 
@@ -25,13 +44,16 @@ public class Gerente extends Funcionario {
 		return senha;
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/heads/main
 	public boolean autenticar(String senha) {
 		if (this.senha == senha) {
-//			System.out.println("Acesso Permitido!");
+//			System.out.prIntegerln("Acesso Permitido!");
 			return true;
 		} else {
-//			System.out.println("Acesso Negado!");
+//			System.out.prIntegerln("Acesso Negado!");
 			return false;
 		}
 	}
