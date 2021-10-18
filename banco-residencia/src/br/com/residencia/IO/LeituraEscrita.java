@@ -45,7 +45,7 @@ public class LeituraEscrita {
 						Conta.mapaContas.put(info[1], cp);
 
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.CLIENTE.getTipoUsuario())) {
-						Cliente cliente = new Cliente(info[0], info[1], info[2], info[3], info[4]);
+						Cliente cliente = new Cliente(info[0], info[1], info[2], info[3], info[4], Integer.parseInt(info[5]), Integer.parseInt(info[6]) );
 						Usuarios.mapaUsuarios.put(info[0], cliente);
 						Usuarios.OrdenaUsuarios.put(info[0], cliente);
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.GERENTE.getTipoUsuario())) {
