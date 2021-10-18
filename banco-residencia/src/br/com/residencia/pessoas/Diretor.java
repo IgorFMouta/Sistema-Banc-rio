@@ -4,6 +4,9 @@ public class Diretor extends Gerente {
 	
 	//a. Relatório com as informações de Nome, CPF e Agência de todos os clientes do sistema em ordem alfabética.
 	
+
+	
+	
 	
 	
 		public void nomesEmOrdem(String[] args) {

@@ -54,11 +54,13 @@ public class LeituraEscrita {
 						Usuarios.mapaUsuarios.put(info[0], gerente);
 						Usuarios.OrdenaUsuarios.put(info[0], gerente);
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.DIRETOR.getTipoUsuario())) {
-						Diretor diretor = new Diretor(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]), Integer.parseInt(info[5]));
+						Diretor diretor = new Diretor(info[0], info[1], info[2], info[3], info[4], Integer.parseInt(info[5]), 
+								Integer.parseInt(info[6]), Double.parseDouble(info[7]), Double.parseDouble(info[8]), Integer.parseInt(info[9]));
 						Usuarios.mapaUsuarios.put(info[2], diretor);
 						Usuarios.OrdenaUsuarios.put(info[0], diretor);
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.PRESIDENTE.getTipoUsuario())) {
-						Presidente presidente = new Presidente(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]), Integer.parseInt(info[5]));
+						Presidente presidente = new Presidente(info[0], info[1], info[2], info[3], info[4], Integer.parseInt(info[5]), 
+								Integer.parseInt(info[6]), Double.parseDouble(info[7]), Double.parseDouble(info[8]), Integer.parseInt(info[9]));
 						Usuarios.mapaUsuarios.put(info[2], presidente);
 						Usuarios.OrdenaUsuarios.put(info[0], presidente);
 
