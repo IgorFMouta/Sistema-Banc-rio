@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 public abstract class Usuarios implements Comparable<Usuarios> {
 
-	protected String tipoUsuarios;
+	protected String cargo;
 	protected String nome;
 	protected String sobrenome;
 	protected String cpf;
@@ -22,23 +22,23 @@ public abstract class Usuarios implements Comparable<Usuarios> {
 		super();
 	}
 
-	public Usuarios(String tipoUsuarios, String nome, String sobrenome, String cpf, String senha, Integer agencia, Integer numeroConta) {
+	public Usuarios(String cargo, String nome, String sobrenome, String cpf, String senha, Integer agencia, Integer numeroConta) {
 		super();
 		this.nome = nome;
 		this.sobrenome = sobrenome;
-		this.tipoUsuarios = tipoUsuarios;
+		this.cargo = cargo;
 		this.cpf = cpf;
 		this.senha = senha;
 		this.agencia = agencia;
 		this.numeroConta = numeroConta;
 	}
 
-	public String getTipoUsuarios() {
-		return this.tipoUsuarios;
+	public String getCargo() {
+		return this.cargo;
 	}
 
-	public void setTipoUsuarios(String tipoUsuarios) {
-		this.tipoUsuarios = tipoUsuarios;
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
 	}
 
 	public String getNome() {
@@ -95,7 +95,7 @@ public abstract class Usuarios implements Comparable<Usuarios> {
 
 	@Override
 	public String toString() {
-		return "Usuarios [nome=" + this.nome + ", tipoUsuarios=" + this.tipoUsuarios + ", cpf=" + this.cpf + ", senha="
+		return "Usuarios [nome=" + this.nome + ", cargo=" + this.cargo + ", cpf=" + this.cpf + ", senha="
 				+ this.senha + ", agencia=" + this.agencia + ", numeroConta=" + this.numeroConta + "]";
 	}
 
