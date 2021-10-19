@@ -1,18 +1,16 @@
 package br.com.residencia.enums;
 
-import java.util.Date;
-
 public enum ContaTipoEnum {
 
-	CONTA_CORRENTE(1, "corrente"),
-	CONTA_POUPANCA(2, "poupanca");
+	CONTA_CORRENTE("corrente", 1),
+	CONTA_POUPANCA("poupanca", 2);
 	
 	private final Integer idTipoConta;
 	private final String tipoConta;
 	
-	private ContaTipoEnum(Integer idTipoConta, String tipoConta) {
-		this.idTipoConta = idTipoConta;
+	private ContaTipoEnum(String tipoConta, Integer idTipoConta) {
 		this.tipoConta = tipoConta;
+		this.idTipoConta = idTipoConta;
 	}
 
 	public Integer getIdTipoConta() {

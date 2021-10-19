@@ -21,7 +21,7 @@ public class MenuRelatorio {
 	MenuInterativo menuInterativo = new MenuInterativo();
 	
 	public static void menuRelatorio(Integer idUsuario, Usuarios usuarios, Conta conta)
-			throws IOException, InputMismatchException, NullPointerException {
+			throws IOException {
 
 		Principal principal = new Principal();
 
@@ -60,15 +60,15 @@ public class MenuRelatorio {
 
 			if (conta.getTipoConta().equalsIgnoreCase(ContaTipoEnum.CONTA_CORRENTE.getTipoConta())) {
 
-				ContaCorrente cc = new ContaCorrente();
-				System.out.println("O total gasto com operações foi de R$" + String.format("%.2f", cc.getTotalTributos()));
-				System.out.println("O valor cobrado para cada saque é de R$" + String.format("%.2f", cc.getTotalTributado1()));
-				System.out.println("Total de saques realizados: " + cc.getTotalSaques());
-				System.out.println("O valor cobrado para cada deposito é de R$" + String.format("%.2f", cc.getTotalTributado1()));
-				System.out.println("Total de depósitos realizados: " + cc.getTotalDepositos());
-				System.out.println("O valor cobrado para cada tranferência é de R$" + String.format("%.2f", cc.getTotalTributado2()));
+//				ContaCorrente cc = new ContaCorrente();
+				System.out.println("O total gasto com operações foi de R$" + String.format("%.2d", ((ContaCorrente) conta).getTotalTributado1()));
+				System.out.println("O valor cobrado para cada saque é de R$0.10");
+				System.out.println("Total de saques realizados: " + ((ContaCorrente) conta).getTotalSaques());
+				System.out.println("O valor cobrado para cada deposito é de R$0.10");
+				System.out.println("Total de depósitos realizados: " + ((ContaCorrente) conta).getTotalDepositos());
+				System.out.println("O valor cobrado para cada tranferência é de R$0.20");
 				System.out.println(
-						"Total de transferências realizadas: " + cc.getTotalTransferencias());
+						"Total de transferências realizadas: " + ((ContaCorrente) conta).getTotalTransferencias());
 
 				LeituraEscrita.relatorioTributacaoContaCorrente(conta);;
 
@@ -162,7 +162,7 @@ public class MenuRelatorio {
 	}
 
 	public static void selecaoRelatorio(Conta conta, Usuarios usuario)
-			throws InputMismatchException, NullPointerException, IOException {
+			throws IOException {
 
 		if (usuario.getCargo().equalsIgnoreCase(PessoasTipoEnum.CLIENTE.getTipoUsuario())) {
 			MenuRelatorio.menuRelatorio(PessoasTipoEnum.CLIENTE.getIdTipoUsuario(), usuario, conta);

@@ -17,27 +17,14 @@ public class MenuInterativo {
 	double valor;
 	static String cpf;
 	int escolha;
+
+
 	
 	public static void menuInterativo(Usuarios usuario, Conta conta)
 			throws IOException {
 		Principal principal = new Principal();
 		ContaCorrente cc = new ContaCorrente();
 		
-//		System.out.println("=========================================================================================================\n"
-//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  +\r\n"
-//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:              @@@@#              :@@@@@@@  +\r\n"
-//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#                                      :@@@@@  +\r\n"
-//				+ "+ @@@@       @@@@@    @@@@   !@#  @@#      @@@      !@@@@         ########### ####   ####        :@@@@  +\r\n"
-//				+ "+ @@@@   @@   @@@      @@@    ##  @@  :@@  :@:  @@#  @@@@!        ####        ####   ####        !@@@@  +\r\n"
-//				+ "+ @@@@       @@@@  $$  @@@  #  #  @@  :@@@@@@:  @@#  @@@@@!       ####        ###########       :@@@@@  +\r\n"
-//				+ "+ @@@@   @@@   @        @@  #@    @@  :@@@  @:  @@#  @@@@@@#      ########### ####   ####      :@@@@@@  +\r\n"
-//				+ "+ @@@@        @@   @@   @@  #@#   @@@     .@@@      @@@@@@@@@@                              :@@@@@@@@@  +\r\n"
-//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                        :@@@@@@@@@@@@  +\r\n"
-//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                :@@@@@@@@@@@@@@@@  +\r\n"
-//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@!       :@@@@@@@@@@@@@@@@@@@@  +\r\n"
-//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@  +\r\n"
-//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  +\r\n"
-//				+ "=========================================================================================================");
 		
 		try {
 			
@@ -50,19 +37,19 @@ public class MenuInterativo {
 			System.out.println("[6]\tSair");
 			principal.imprimirLinha();
 			
-//			System.out.print("Escolha uma opção para seguir: ");
-			JOptionPane.showMessageDialog(null, "Escolha uma opção para seguir: ");
+			System.out.print("Escolha uma opção para seguir: ");
+//			JOptionPane.showMessageDialog(null, "Escolha uma opção para seguir: ");
 			int opcao = principal.sc.nextInt();
-			String valor1;
+//			String valor1;
 			
 			switch(opcao) {
 			case 1:
-//				System.out.print("Digite o valor que gostaria de retirar: ");
-				JOptionPane.showMessageDialog(null, "Digite o valor que gostaria de retirar: ");
-//				valor = Double.parseDouble(principal.sc.next());
-				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
+				System.out.print("Digite o valor que gostaria de retirar: ");
+//				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
+//				Double valor = Double.parseDouble(valor1);
+//				JOptionPane.showMessageDialog(null, "Digite o valor que gostaria de retirar: ");
+				Double valor = Double.parseDouble(principal.sc.next());
 				
-				Double valor = Double.parseDouble(valor1);
 						
 				conta.sacar(valor);
 				
@@ -72,10 +59,10 @@ public class MenuInterativo {
 				break;
 			
 			case 2:
-//				System.out.print("Digite o valor apra deposito: ");
-//				valor = Double.parseDouble(principal.sc.next());
-				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
-				valor = Double.parseDouble(valor1);
+				System.out.print("Digite o valor apra deposito: ");
+				valor = Double.parseDouble(principal.sc.next());
+//				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
+//				valor = Double.parseDouble(valor1);
 				
 				conta.depositar(valor);
 				
@@ -85,24 +72,24 @@ public class MenuInterativo {
 				break;
 				
 			case 3:
-//				System.out.print("Digite o cpf para o qual deseja transferir: ");
-//				cpf = principal.sc.next();
-				cpf = JOptionPane.showInputDialog("Digite o cpf para o qual deseja transferir: ");
+				System.out.print("Digite o cpf para o qual deseja transferir: ");
+				cpf = principal.sc.next();
+//				cpf = JOptionPane.showInputDialog("Digite o cpf para o qual deseja transferir: ");
 				
 				Conta destinatario = Conta.mapaContas.get(cpf);
 				
 				while(destinatario == null) {
-//					System.out.println("Cpf não encontrado no sistema!\n\n");
-					JOptionPane.showMessageDialog(null, "Cpf não encontrado no sistema!\n\n");
-//					System.out.print("Digite o cpf para o qual deseja transferir: ");
-//					cpf = principal.sc.next();
-					cpf = JOptionPane.showInputDialog("Digite o cpf para o qual deseja transferir: ");
+					System.out.println("Cpf não encontrado no sistema!\n\n");
+//					JOptionPane.showMessageDialog(null, "Cpf não encontrado no sistema!\n\n");
+					System.out.print("Digite o cpf para o qual deseja transferir: ");
+					cpf = principal.sc.next();
+//					cpf = JOptionPane.showInputDialog("Digite o cpf para o qual deseja transferir: ");
 					destinatario = Conta.mapaContas.get(cpf);
 				}
-//				System.out.println("Informe o valor a ser transferido: ");
-//				valor = Double.parseDouble(principal.sc.next());
-				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
-				valor = Double.parseDouble(valor1);
+				System.out.println("Informe o valor a ser transferido: ");
+				valor = Double.parseDouble(principal.sc.next());
+//				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
+//				valor = Double.parseDouble(valor1);
 				
 				conta.transferir(valor, destinatario);
 				
@@ -112,8 +99,8 @@ public class MenuInterativo {
 				break;
 				
 			case 4:
-				System.out.println("Seu saldo é de: R$" + String.format("%,2f", conta.getSaldo()));
-				JOptionPane.showMessageDialog(null, "Seu saldo é de: R$" + String.format("%.2f", conta.getSaldo()));
+				System.out.println("Seu saldo é de: R$" + String.format("%.d", conta.getSaldo()));
+//				JOptionPane.showMessageDialog(null, "Seu saldo é de: R$" + String.format("%.2d", conta.getSaldo()));
 				
 				principal.pularLinha();
 				break;
@@ -128,6 +115,7 @@ public class MenuInterativo {
 				} else if (usuario.getCargo().equalsIgnoreCase(PessoasTipoEnum.PRESIDENTE.getTipoUsuario())) {
 					MenuRelatorio.menuRelatorio(PessoasTipoEnum.PRESIDENTE.getIdTipoUsuario(), usuario, conta);
 				}
+				
 				break;
 				
 			case 6:
@@ -139,7 +127,7 @@ public class MenuInterativo {
 			default:
 				
 //				System.out.println("Essa opção não é válida!");
-				JOptionPane.showMessageDialog(null, "Essa opção não é válida!");
+//				JOptionPane.showMessageDialog(null, "Essa opção não é válida!");
 				
 			}
 			menuInterativo(usuario, conta);

@@ -1,6 +1,5 @@
 package br.com.residencia.contas;
 
-import br.com.residencia.IO.LeituraEscrita;
 
 public class ContaCorrente extends Conta {
 
@@ -18,9 +17,10 @@ public class ContaCorrente extends Conta {
 
 	
 
+	
 	@Override
 	public String toString() {
-		return "Conta Corrente [Numero da Agência = " + this.getAgencia() + "Número da conta = " + 
+		return "Conta " + this.getTipoConta() + "[Numero da Agência = " + this.getAgencia() + "Número da conta = " + 
 		this.getNumero() + "Saldo em conta =" + this.getSaldo() + ", CPF = " + this.getCpf() + "]";
 	}
 
@@ -30,21 +30,19 @@ public class ContaCorrente extends Conta {
 	@Override
 	public boolean sacar(double valor) {
 		if(getSaldo() < valor || valor < 0) {
-			return false;
+			System.out.println("\nNão foi possível realizar a operação!");
+			
 		}
-		else {
-			if((getSaldo() - valor - totalTributado1) >= 0) {
+		else if((getSaldo() - valor - totalTributado1) >= 0) {
 				saldo = getSaldo() - valor;
 				setSaldo(saldo - totalTributado1);
 				totalSaques++;
-				totalTributos++;
-				totalTributos = totalTributos * totalTributado1;
-			}else {
-				System.out.println("Não foi possível realizar a operação!");
-			}
-			totalTributado1 = totalTributado1 * totalSaques;
+//				totalTributos += totalTributado1;
+				totalTributado1 = totalTributado1 * totalSaques;
+				System.out.println("\nOperação realizada com sucesso!");
 			return true;
 		}
+		return false;
 	}
 
 	@Override
@@ -54,10 +52,9 @@ public class ContaCorrente extends Conta {
 		}else {
 			if((getSaldo() + totalTributado1) >= 0) {
 				saldo = getSaldo() + valor;
-				setSaldo(saldo - 0.10);
+				setSaldo(saldo - totalTributado1);
 				totalDepositos++;
-				totalTributos++;
-				totalTributos = totalTributos * totalTributado1;
+				totalTributos += totalTributado1;
 			}else {
 				System.out.println("Não foi possível realizar a operação!");
 			}
@@ -68,15 +65,16 @@ public class ContaCorrente extends Conta {
 	@Override
 	public boolean transferir(double valor, Conta destinatario) {
 		if(this.sacar(valor) == false) {
+			System.out.println("Não foi possível realizar a operação!");
 			return false;
 		}
 		else {
-			destinatario.depositar(valor + 0.20);
+			destinatario.depositar(valor + totalTributado2);
 			totalTransferencias++;
-			totalTributos++;
-			totalTributos = totalTributos * totalTributado2;
+			totalTributado2 = totalTributado2 * totalTransferencias;
+			totalTributos += totalTributado2;
+			System.out.println("Operação realizada com sucesso!");
 		}
-		totalTributado2 = totalTributado2 * totalTransferencias;
 		return true;
 	}
 
