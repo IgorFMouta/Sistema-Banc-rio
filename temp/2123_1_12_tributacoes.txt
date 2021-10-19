@@ -1,0 +1,45 @@
+*************** TOTAL DE TRIBUTAÇÕES ***************
+
+Total gasto com transações = R$0.11000000000000001
+Taxa para saque = R$0.2
+Total de saques realizados = 2
+
+Taxa para deposito = R$0.2
+Total de depósitos realizados = 0
+
+Taxa para tranferência = R$0.2
+Total de transferências realizadas = 0
+
+Operação realizada em: 19/10/2021 01:42:18
+****************************************************
+
+*************** TOTAL DE TRIBUTAÇÕES ***************
+
+Total gasto com transações = R$0.22000000000000003
+Taxa para saque = R$0.2
+Total de saques realizados = 2
+
+Taxa para deposito = R$0.2
+Total de depósitos realizados = 0
+
+Taxa para tranferência = R$0.2
+Total de transferências realizadas = 0
+
+Operação realizada em: 19/10/2021 01:42:56
+****************************************************
+
+*************** TOTAL DE TRIBUTAÇÕES ***************
+
+Total gasto com transações = R$0.30000000000000004
+Taxa para saque = R$0.2
+Total de saques realizados = 2
+
+Taxa para deposito = R$0.2
+Total de depósitos realizados = 0
+
+Taxa para tranferência = R$0.2
+Total de transferências realizadas = 0
+
+Operação realizada em: 19/10/2021 01:50:59
+****************************************************
+

@@ -26,7 +26,7 @@ import br.com.residencia.pessoas.Usuarios;
 
 public class LeituraEscrita {
 
-	static final String PATH_BASICO = ".\\banco-residencia\\temp\\";
+	static final String PATH_BASICO = "./temp/";
 	final static String EXTENSAO = ".txt";
   
 	public static void leitor(String path) throws IOException {
@@ -48,22 +48,22 @@ public class LeituraEscrita {
 
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.CLIENTE.getTipoUsuario())) {
 						Cliente cliente = new Cliente(info[0], info[1], info[2], info[3], info[4], Integer.parseInt(info[5]), Integer.parseInt(info[6]) );
-						Usuarios.mapaUsuarios.put(info[0], cliente);
-						Usuarios.OrdenaUsuarios.put(info[0], cliente);
+						Usuarios.mapaUsuarios.put(info[3], cliente);
+						Usuarios.OrdenaUsuarios.put(info[1], cliente);
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.GERENTE.getTipoUsuario())) {
 						Gerente gerente = new Gerente(info[0], info[1], info[2], info[3], info[4], Integer.parseInt(info[5]), 
 								Integer.parseInt(info[6]), Double.parseDouble(info[7]), Double.parseDouble(info[8]), Integer.parseInt(info[9]));
-						Usuarios.mapaUsuarios.put(info[0], gerente);
-						Usuarios.OrdenaUsuarios.put(info[0], gerente);
+						Usuarios.mapaUsuarios.put(info[3], gerente);
+						Usuarios.OrdenaUsuarios.put(info[1], gerente);
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.DIRETOR.getTipoUsuario())) {
 						Diretor diretor = new Diretor(info[0], info[1], info[2], info[3], info[4], Integer.parseInt(info[5]), 
 								Integer.parseInt(info[6]), Double.parseDouble(info[7]), Double.parseDouble(info[8]), Integer.parseInt(info[9]));
-						Usuarios.mapaUsuarios.put(info[2], diretor);
+						Usuarios.mapaUsuarios.put(info[3], diretor);
 						Usuarios.OrdenaUsuarios.put(info[0], diretor);
 					}if(info[0].equalsIgnoreCase(PessoasTipoEnum.PRESIDENTE.getTipoUsuario())) {
 						Presidente presidente = new Presidente(info[0], info[1], info[2], info[3], info[4], Integer.parseInt(info[5]), 
 								Integer.parseInt(info[6]), Double.parseDouble(info[7]), Double.parseDouble(info[8]), Integer.parseInt(info[9]));
-						Usuarios.mapaUsuarios.put(info[2], presidente);
+						Usuarios.mapaUsuarios.put(info[3], presidente);
 						Usuarios.OrdenaUsuarios.put(info[0], presidente);
 
 					}
@@ -263,8 +263,8 @@ public class LeituraEscrita {
 	}
 	
 	public static void relatorioTributacaoContaCorrente(Conta conta) throws IOException {
-		ContaCorrente cc = new ContaCorrente();
-		String nomeArquivo = conta.getCpf() + "_" + conta.getAgencia() + "_" + conta.getNumero()
+
+		String nomeArquivo =((ContaCorrente) conta).getTotalSaques() + conta.getCpf() + "_" + conta.getAgencia() + "_" + conta.getNumero()
 				+ "_tributacoes";
 
 		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(PATH_BASICO + nomeArquivo + EXTENSAO, true));
@@ -272,25 +272,25 @@ public class LeituraEscrita {
 		String linha = "*************** TOTAL DE TRIBUTAÇÕES ***************";
 		buffWrite.append(linha + "\n\n");
 
-		linha = "Total gasto com transações = R$" + cc.getTotalTributos();
+		linha = "Total gasto com transações = R$" + ((ContaCorrente) conta).getTotalTributos();
 		buffWrite.append(linha + "\n");
 
-		linha = "Taxa para saque = R$" + cc.getTotalTributado1();
+		linha = "Taxa para saque = R$" + ((ContaCorrente) conta).getTotalTributado1();
 		buffWrite.append(linha + "\n");
 
-		linha = "Total de saques realizados = " + cc.getTotalSaques();
+		linha = "Total de saques realizados = " + ((ContaCorrente) conta).getTotalSaques();
 		buffWrite.append(linha + "\n\n");
 
-		linha = "Taxa para deposito = R$" + cc.getTotalTributado1();
+		linha = "Taxa para deposito = R$" + ((ContaCorrente) conta).getTotalTributado1();
 		buffWrite.append(linha + "\n");
 
-		linha = "Total de depósitos realizados = " + cc.getTotalDepositos();
+		linha = "Total de depósitos realizados = " + ((ContaCorrente) conta).getTotalDepositos();
 		buffWrite.append(linha + "\n\n");
 
-		linha = "Taxa para tranferência = R$" + cc.getTotalTributado2();
+		linha = "Taxa para tranferência = R$" + ((ContaCorrente) conta).getTotalTributado2();
 		buffWrite.append(linha + "\n");
 
-		linha = "Total de transferências realizadas = " + cc.getTotalTransferencias();
+		linha = "Total de transferências realizadas = " + ((ContaCorrente) conta).getTotalTransferencias();
 		buffWrite.append(linha + "\n\n");
 
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");

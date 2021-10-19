@@ -73,12 +73,10 @@ public abstract class Conta {
 	*/
 	
 	private String tipoConta;
-
 	private String cpf;
 	private String agencia;
 	private String numero;
 	private Double saldo;
-	private Double SAQUE = 0.1d, DEPOSITO = 0.1d, TRANSFERENCIA = 0.2d;
 	
 	public static Map<String, Conta> mapaContas = new HashMap<>();
 	
@@ -86,8 +84,9 @@ public abstract class Conta {
 		super();
 	}
 	
-	public Conta(String TipoConta, String cpf, String agencia, String numero, Double saldo) {
+	public Conta(String tipoConta, String cpf, String agencia, String numero, Double saldo) {
 		super();
+		this.tipoConta = tipoConta;
 		this.cpf = cpf;
 		this.agencia = agencia;
 		this.numero = numero;
@@ -96,11 +95,14 @@ public abstract class Conta {
 	
 	
 
+	
+
+
 	@Override
 	public String toString() {
-		return "Conta [cpf=" + cpf + ", agencia=" + agencia + ", numero=" + numero + ", saldo=" + saldo + "]";
+		return "Conta [" + tipoConta + ", cpf=" + cpf + ", agencia=" + agencia + ", numero=" + numero
+				+ ", saldo=" + saldo + "]";
 	}
-
 
 	public abstract boolean sacar(double valor);
 

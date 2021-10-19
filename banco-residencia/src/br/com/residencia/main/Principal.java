@@ -20,29 +20,31 @@ public class Principal {
 	public String senha;
 	MenuInterativo menuInterativo = new MenuInterativo();
 	
-	public void menuInterativo() throws NullPointerException, InputMismatchException {
+	public void menuInterativo() throws IOException{
 
 		try {
 
 			
-//			System.out.print("Digite seu CPF: ");
-			cpf = JOptionPane.showInputDialog("Digite o seu cpf: ");
-//			System.out.print("Digite sua senha: ");
-			senha = JOptionPane.showInputDialog("digite sua senha: ");
+			System.out.print("Digite seu CPF: ");
+			cpf = sc.next();
+//			cpf = JOptionPane.showInputDialog("Digite o seu cpf: " + sc.next());
+			System.out.print("Digite sua senha: ");
+			senha = sc.next();
+//			senha = JOptionPane.showInputDialog("digite sua senha: " + sc.next());
 			
 
 			Usuarios usuario = Usuarios.mapaUsuarios.get(cpf);
 
 			Conta conta = Conta.mapaContas.get(cpf);
 			
-			ImageIcon icon = new ImageIcon("C:\\Users\\rafae\\OneDrive\\Imagens\\Saved Pictures\\74a04fc764bd237a148dfe7ce87aa178.jpg");
+//			ImageIcon icon = new ImageIcon("C:\\Users\\rafae\\git\\SistemaBancario\\banco-residencia\\imagem\\74a04fc764bd237a148dfe7ce87aa178");
 
 			while (usuario == null || !(usuario.getSenha().equalsIgnoreCase(senha))) {
-				JOptionPane.showMessageDialog(null, "cpf e/ou senha incorreto(s)!", "Erro", JOptionPane.INFORMATION_MESSAGE, icon);;
+//				JOptionPane.showMessageDialog(null, "cpf e/ou senha incorreto(s)!", "Erro", JOptionPane.INFORMATION_MESSAGE, icon);
 
-//				System.out.print("Digite seu CPF: ");
+				System.out.print("Digite seu CPF: ");
 				cpf = JOptionPane.showInputDialog("Digite o seu cpf: ");
-//				System.out.print("Digite sua senha: ");
+				System.out.print("Digite sua senha: ");
 				senha = JOptionPane.showInputDialog("digite sua senha: ");
 
 				usuario = Usuarios.mapaUsuarios.get(cpf);
@@ -50,43 +52,35 @@ public class Principal {
 				conta = Conta.mapaContas.get(cpf);
 			}
 
-			limparTela();
+//			limparTela();
 			subMenu(usuario, conta);
 
-			imprimirLinha();
+//			imprimirLinha();
 
-		} catch (NullPointerException e) {
-			System.out.println(e.getMessage());
-		} catch (InputMismatchException e) {
-			System.out.println(e.getMessage());
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		} finally {
+		}catch(IOException e){
+			System.out.println(e);
+		}
+		finally {
 			menuInterativo();
 		}
 	}
 	
 	public void subMenu(Usuarios usuario, Conta conta)
-			throws NullPointerException, InputMismatchException, IOException {
+			throws IOException {
 
 		try {
 
-			ImageIcon icone = new ImageIcon("C:\\Users\\rafae\\OneDrive\\Imagens\\Saved Pictures\\WhatsApp Image 2021-10-16 at 10.21.30.jpg");
+//			ImageIcon icone = new ImageIcon("C:\\Users\\rafae\\OneDrive\\Imagens\\Saved Pictures\\WhatsApp Image 2021-10-16 at 10.21.30.jpg");
 			
 			imprimirLinha();
-//			System.out.println("Bem-vindo(a) ao Banco CH, " + usuario.getNome() + "!\n");
-			JOptionPane.showMessageDialog(null, "Bem-vindo(a) ao Banco CH," + usuario.getNome(), "Entrada", JOptionPane.INFORMATION_MESSAGE, icone);;
+			System.out.println("Bem-vindo(a) ao Banco CH, " + usuario.getNome() + "!\n");
+//			JOptionPane.showMessageDialog(null, "Bem-vindo(a) ao Banco CH," + usuario.getNome(), "Entrada", JOptionPane.INFORMATION_MESSAGE, icone);
 			imprimirLinha();
-//			System.out.println("Digite o número correspondente à operação desejada:");
-			JOptionPane.showInputDialog("Escolha uma opção referente a operação desejada: ");
+//			JOptionPane.showInputDialog("Escolha uma opção referente a operação desejada: ");
 
 			MenuInterativo.menuInterativo(usuario, conta);
 
-		}  catch (NullPointerException e) {
-			System.out.println(e.getMessage());
-		} catch (InputMismatchException e) {
-			System.out.println(e.getMessage());
-		} catch (Exception e) {
+		}  catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
 			subMenu(usuario, conta);

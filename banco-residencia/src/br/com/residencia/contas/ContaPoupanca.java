@@ -11,7 +11,7 @@ public class ContaPoupanca extends Conta {
 		 * Podemos INSERIR mais dinheiro nessa conta e também SACAR
 		 * 
 		 */
-		private String tipoConta = "Poupança";
+
 		private Double DiaRendimento;
 		private Integer totalSaques = 0, totalDepositos = 0, totalTransferencias = 0;
 		private Double totalTributado1 = 0.1;
@@ -26,7 +26,7 @@ public class ContaPoupanca extends Conta {
 
 		@Override
 		public String toString() {
-			return "Conta [" + tipoConta + ", cpf=" + getCpf() + ", agencia=" + getAgencia() + ", numero=" + getNumero() + ", saldo=" + getSaldo() + "ContaCorrente" + "]";
+			return "Conta [" + getTipoConta() + ", cpf=" + getCpf() + ", agencia=" + getAgencia() + ", numero=" + getNumero() + ", saldo=" + getSaldo() + "ContaCorrente" + "]";
 		}
 		
 		public double getDiaRendimento() {
