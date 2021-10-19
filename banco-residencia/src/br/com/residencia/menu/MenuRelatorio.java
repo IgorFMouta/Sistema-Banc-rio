@@ -1,7 +1,6 @@
 package br.com.residencia.menu;
 
 import java.io.IOException;
-import java.util.InputMismatchException;
 
 import br.com.residencia.IO.LeituraEscrita;
 import br.com.residencia.contas.Conta;

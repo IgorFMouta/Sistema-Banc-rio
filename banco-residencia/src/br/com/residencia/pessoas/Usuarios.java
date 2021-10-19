@@ -81,6 +81,10 @@ public abstract class Usuarios implements Comparable<Usuarios> {
 		this.numeroConta = numeroConta;
 	}
 
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
 	@Override
 	public int compareTo(Usuarios outroUsuarios) {
 
