@@ -3,11 +3,8 @@ package br.com.residencia.menu;
 import java.io.IOException;
 import java.util.InputMismatchException;
 
-import javax.swing.JOptionPane;
-
 import br.com.residencia.IO.LeituraEscrita;
 import br.com.residencia.contas.Conta;
-import br.com.residencia.contas.ContaCorrente;
 import br.com.residencia.enums.PessoasTipoEnum;
 import br.com.residencia.main.Principal;
 import br.com.residencia.pessoas.Usuarios;
@@ -37,16 +34,14 @@ public class MenuInterativo {
 			principal.imprimirLinha();
 			
 			System.out.print("Escolha uma opção para seguir: ");
-//			JOptionPane.showMessageDialog(null, "Escolha uma opção para seguir: ");
-			int opcao = principal.sc.nextInt();
+
+			int opcao = Principal.sc.nextInt();
 			
 			switch(opcao) {
 			case 1:
 				System.out.print("Digite o valor que gostaria de retirar: ");
-//				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
-//				Double valor = Double.parseDouble(valor1);
-//				JOptionPane.showMessageDialog(null, "Digite o valor que gostaria de retirar: ");
-				Double valor = Double.parseDouble(principal.sc.next());
+
+				Double valor = Double.parseDouble(Principal.sc.next());
 				
 						
 				conta.sacar(valor);
@@ -58,9 +53,8 @@ public class MenuInterativo {
 			
 			case 2:
 				System.out.print("Digite o valor apra deposito: ");
-				valor = Double.parseDouble(principal.sc.next());
-//				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
-//				valor = Double.parseDouble(valor1);
+				valor = Double.parseDouble(Principal.sc.next());
+
 				
 				conta.depositar(valor);
 				
@@ -71,23 +65,22 @@ public class MenuInterativo {
 				
 			case 3:
 				System.out.print("Digite o cpf para o qual deseja transferir: ");
-				cpf = principal.sc.next();
-//				cpf = JOptionPane.showInputDialog("Digite o cpf para o qual deseja transferir: ");
+				cpf = Principal.sc.next();
+
 				
 				Conta destinatario = Conta.mapaContas.get(cpf);
 				
 				while(destinatario == null) {
 					System.out.println("Cpf não encontrado no sistema!\n\n");
-//					JOptionPane.showMessageDialog(null, "Cpf não encontrado no sistema!\n\n");
+
 					System.out.print("Digite o cpf para o qual deseja transferir: ");
-					cpf = principal.sc.next();
-//					cpf = JOptionPane.showInputDialog("Digite o cpf para o qual deseja transferir: ");
+					cpf = Principal.sc.next();
+
 					destinatario = Conta.mapaContas.get(cpf);
 				}
 				System.out.println("Informe o valor a ser transferido: ");
-				valor = Double.parseDouble(principal.sc.next());
-//				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
-//				valor = Double.parseDouble(valor1);
+				valor = Double.parseDouble(Principal.sc.next());
+
 				
 				conta.transferir(valor, destinatario);
 				
@@ -97,8 +90,8 @@ public class MenuInterativo {
 				break;
 				
 			case 4:
-				System.out.println("Seu saldo é de: R$" + String.format("%.d", conta.getSaldo()));
-//				JOptionPane.showMessageDialog(null, "Seu saldo é de: R$" + String.format("%.2d", conta.getSaldo()));
+				System.out.println("Seu saldo é de: R$" + String.format("%.2f", conta.getSaldo()));
+
 				
 				principal.pularLinha();
 				break;
@@ -118,7 +111,7 @@ public class MenuInterativo {
 				
 			case 6:
 				
-//				principal.menuInterativo();
+
 				System.out.println("Adeus vizinhança!");
 				System.exit(0);
 				
@@ -126,8 +119,7 @@ public class MenuInterativo {
 			
 			default:
 				
-//				System.out.println("Essa opção não é válida!");
-//				JOptionPane.showMessageDialog(null, "Essa opção não é válida!");
+
 				
 			}
 			menuInterativo(usuario, conta);
