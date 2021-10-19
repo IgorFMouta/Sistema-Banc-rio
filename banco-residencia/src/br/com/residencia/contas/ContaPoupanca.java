@@ -12,9 +12,9 @@ public class ContaPoupanca extends Conta {
 		 * 
 		 */
 
-		private Double DiaRendimento;
+		private Double DiaRendimento = 0.0;
 		private Integer totalSaques = 0, totalDepositos = 0, totalTransferencias = 0;
-		private Double totalTributado1 = 0.1;
+		private Double totalTributado1 = 0.1, totalTributos = 0.0, totalTributado2 = 0.2;
 
 		public ContaPoupanca() {
 			super();
@@ -26,50 +26,51 @@ public class ContaPoupanca extends Conta {
 
 		@Override
 		public String toString() {
-			return "Conta [" + getTipoConta() + ", cpf=" + getCpf() + ", agencia=" + getAgencia() + ", numero=" + getNumero() + ", saldo=" + getSaldo() + "ContaCorrente" + "]";
+			return "Conta [" + getTipoConta() + ", cpf=" + getCpf() + ", agencia=" + getAgencia() + ", numero=" + 
+					getNumero() + ", saldo=" + getSaldo() + "]";
 		}
 		
-		public double getDiaRendimento() {
-			return DiaRendimento;
-		}
-
-		public void setDiaRendimento(double Diarendimento) {
-			DiaRendimento = Diarendimento;
-		}
 
 		
 		//Método para calcular o novo saldo
-		public boolean calcularRendimento(double taxaRendimento, int dias) {
+		public void calcularRendimento(double valor, int dias) {
 			int contador = 1;
-			if(DiaRendimento >= contador) {
+			if(DiaRendimento <= contador) {
 				while(DiaRendimento != contador) {
-					this.setSaldo(this.getSaldo() + (this.getSaldo() * taxaRendimento));
+					double taxaRendimento = 0.005;
+					this.setSaldo(this.getSaldo() + (valor * taxaRendimento));
 					contador++;
+					System.out.println(getSaldo());
 				}
-				return true;
-			}
-			return false;	
+			}	
+		}
+
+		public double getDiaRendimento() {
+			return DiaRendimento;
+		}
+		
+		public void setDiaRendimento(double Diarendimento) {
+			DiaRendimento = Diarendimento;
 		}
 
 		double saldo;
 		@Override
 		public boolean sacar(double valor) {
 			if(getSaldo() < valor || valor < 0) {
-				return false;
+				System.out.println("\nNão foi possível realizar a operação!");
+				
 			}
-			else {
-				if((getSaldo() - totalTributado1) >= 0) {
+			else if((getSaldo() - valor - totalTributado1) >= 0) {
 					saldo = getSaldo() - valor;
 					setSaldo(saldo - totalTributado1);
 					totalSaques++;
-				}else {
-					System.out.println("Não foi possível realizar a operação!");
-				}
-				this.totalTributado1 = this.totalTributado1 * this.totalSaques;
+					totalTributos = totalTributado1 * totalSaques;
+					System.out.println("\nOperação realizada com sucesso!");
 				return true;
 			}
+			totalTributado1 = totalTributado1 * totalSaques;
+			return false;
 		}
-
 		@Override
 		public boolean depositar(double valor) {
 			if(valor < 0) {
@@ -77,24 +78,35 @@ public class ContaPoupanca extends Conta {
 			}else {
 				if((getSaldo() + totalTributado1) >= 0) {
 					saldo = getSaldo() + valor;
-					setSaldo(saldo - 0.10);
+					setSaldo(saldo - totalTributado1);
 					totalDepositos++;
+					totalTributos = totalTributado1 * totalDepositos;
+				}else {
+					System.out.println("Não foi possível realizar a operação!");
 				}
-				this.totalTributado1 = this.totalTributado1 * this.totalDepositos;
 				return true;
 			}
 		}
 		@Override
 		public boolean transferir(double valor, Conta destinatario) {
-			if(this.sacar(valor) == false) {
-				return false;
+			if(getSaldo() < valor || valor < 0) {
+				System.out.println("\nNão foi possível realizar a operação!");
+				
 			}
-			else {
-				destinatario.depositar(valor + 0.20);
-				totalTransferencias++;
+			else if((getSaldo() - valor - totalTributado1) >= 0) {
+					saldo = getSaldo() - valor;
+					setSaldo(saldo - totalTributado1);
+					totalTributos += totalTributado1 * totalSaques;
+					destinatario.depositar(valor + totalTributado1);
+					totalTransferencias++;
+					
+					totalTributos += totalTributado2 * totalTransferencias;
+					System.out.println("Operação realizada com sucesso!");
+					
+				return true;
 			}
-			this.totalTributado1 = this.totalTributado1 * this.totalTransferencias;
-			return true;
+			return false;
+
 		}
 }
 

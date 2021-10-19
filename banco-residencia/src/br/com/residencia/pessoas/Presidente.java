@@ -12,7 +12,7 @@ public class Presidente extends Diretor{
 
 	@Override
 	public String toString() {
-		return "Presidente [numFuncionarios =" + numFuncionarios + ", senha =" + senha + ", numFuncionarios1 ="
+		return "Presidente [numFuncionarios =" + numFuncionarios1 + ", senha =" + senha + ", numFuncionarios1 ="
 				+ numFuncionarios1 + ", cargo =" + cargo + ", nome =" + nome + ", cpf =" + cpf + ", salario =" + salario
 				+ ", saldo =" + saldo + ", cargo =" + cargo + ", sobrenome =" + sobrenome + ", agencia ="
 				+ agencia + ", numeroConta =" + numeroConta + "]";

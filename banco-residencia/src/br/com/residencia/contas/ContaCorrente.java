@@ -37,11 +37,11 @@ public class ContaCorrente extends Conta {
 				saldo = getSaldo() - valor;
 				setSaldo(saldo - totalTributado1);
 				totalSaques++;
-//				totalTributos += totalTributado1;
-				totalTributado1 = totalTributado1 * totalSaques;
+				totalTributos = totalTributado1 * totalSaques;
 				System.out.println("\nOperação realizada com sucesso!");
 			return true;
 		}
+		totalTributado1 = totalTributado1 * totalSaques;
 		return false;
 	}
 
@@ -54,32 +54,46 @@ public class ContaCorrente extends Conta {
 				saldo = getSaldo() + valor;
 				setSaldo(saldo - totalTributado1);
 				totalDepositos++;
-				totalTributos += totalTributado1;
+				totalTributos = totalTributado1 * totalDepositos;
 			}else {
 				System.out.println("Não foi possível realizar a operação!");
 			}
-			this.totalTributado1 = this.totalTributado1 * this.totalDepositos;
 			return true;
 		}
 	}
 	@Override
 	public boolean transferir(double valor, Conta destinatario) {
-		if(this.sacar(valor) == false) {
-			System.out.println("Não foi possível realizar a operação!");
-			return false;
+		if(getSaldo() < valor || valor < 0) {
+			System.out.println("\nNão foi possível realizar a operação!");
+			
 		}
-		else {
-			destinatario.depositar(valor + totalTributado2);
-			totalTransferencias++;
-			totalTributado2 = totalTributado2 * totalTransferencias;
-			totalTributos += totalTributado2;
-			System.out.println("Operação realizada com sucesso!");
+		else if((getSaldo() - valor - totalTributado1) >= 0) {
+				saldo = getSaldo() - valor;
+				setSaldo(saldo - totalTributado1);
+				totalTributos += totalTributado1 * totalSaques;
+				destinatario.depositar(valor + totalTributado1);
+				totalTransferencias++;
+				
+				totalTributos += totalTributado2 * totalTransferencias;
+				System.out.println("Operação realizada com sucesso!");
+				
+			return true;
 		}
-		return true;
+		return false;
+
 	}
 
 	public Double getTotalTributado1() {
 		return totalTributado1;
+	}
+	
+
+	public void setTotalTributado1(Double totalTributado1) {
+		this.totalTributado1 = totalTributado1;
+	}
+
+	public void setTotalTributado2(Double totalTributado2) {
+		this.totalTributado2 = totalTributado2;
 	}
 
 	public Double getTotalTributado2() {

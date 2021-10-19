@@ -23,7 +23,6 @@ public class MenuInterativo {
 	public static void menuInterativo(Usuarios usuario, Conta conta)
 			throws IOException {
 		Principal principal = new Principal();
-		ContaCorrente cc = new ContaCorrente();
 		
 		
 		try {
@@ -40,7 +39,6 @@ public class MenuInterativo {
 			System.out.print("Escolha uma opção para seguir: ");
 //			JOptionPane.showMessageDialog(null, "Escolha uma opção para seguir: ");
 			int opcao = principal.sc.nextInt();
-//			String valor1;
 			
 			switch(opcao) {
 			case 1:
@@ -120,7 +118,9 @@ public class MenuInterativo {
 				
 			case 6:
 				
-				principal.menuInterativo();
+//				principal.menuInterativo();
+				System.out.println("Adeus vizinhança!");
+				System.exit(0);
 				
 				break;
 			
