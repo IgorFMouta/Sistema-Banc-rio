@@ -1,8 +1,11 @@
 corrente;123;1;12;4000.00
+corrente;123.456.789-10;1;20;3000.00
 poupanca;125;2;34;3500.00
+poupanca;456;3;3;10000.00
+poupanca;789;0000;4;4;10000.00
 cliente;Igor;Mouta;123;000;1;12
-gerente;Rafael;Baltar;125;00;1;2;3000.00;2000.00;4
+gerente;Rafael;Baltar;125;00;2;34;3500.00;2000.00;4
 diretor;Jean;Victor;456;0;3;3;5000.00;3500.00;6
 presidente;Kelvin;Penha;789;0000;4;4;10000.00;6000.00;10
-cliente;Chaves;Oito;123.456.789-10;431;1;2
+cliente;Chaves;Oito;123.456.789-10;431;1;20
 

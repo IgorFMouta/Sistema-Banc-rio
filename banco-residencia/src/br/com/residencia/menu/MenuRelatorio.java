@@ -61,16 +61,15 @@ public class MenuRelatorio {
 			if (conta.getTipoConta().equalsIgnoreCase(ContaTipoEnum.CONTA_CORRENTE.getTipoConta())) {
 
 //				ContaCorrente cc = new ContaCorrente();
-				System.out.println("O total gasto com operações foi de R$" + String.format("%.2d", ((ContaCorrente) conta).getTotalTributado1()));
+				System.out.println("O total gasto com operações foi de R$" + String.format("%.2f", ((ContaCorrente) conta).getTotalTributos()));
 				System.out.println("O valor cobrado para cada saque é de R$0.10");
 				System.out.println("Total de saques realizados: " + ((ContaCorrente) conta).getTotalSaques());
 				System.out.println("O valor cobrado para cada deposito é de R$0.10");
 				System.out.println("Total de depósitos realizados: " + ((ContaCorrente) conta).getTotalDepositos());
 				System.out.println("O valor cobrado para cada tranferência é de R$0.20");
-				System.out.println(
-						"Total de transferências realizadas: " + ((ContaCorrente) conta).getTotalTransferencias());
+				System.out.println("Total de transferências realizadas: " + ((ContaCorrente) conta).getTotalTransferencias());
 
-				LeituraEscrita.relatorioTributacaoContaCorrente(conta);;
+				LeituraEscrita.relatorioTributacaoContaCorrente(conta);
 
 			} else {
 
@@ -137,7 +136,7 @@ public class MenuRelatorio {
 
 			}
 
-			System.out.println("O total de capital armazenado no banco é de: R$" + saldoTotal);
+			System.out.println("O total de capital armazenado no banco é de: R$" + String.format("%.2f", saldoTotal));
 
 			LeituraEscrita.relatorioTotalCapital(conta, Conta.mapaContas);
 

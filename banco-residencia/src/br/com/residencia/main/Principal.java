@@ -42,10 +42,11 @@ public class Principal {
 			while (usuario == null || !(usuario.getSenha().equalsIgnoreCase(senha))) {
 //				JOptionPane.showMessageDialog(null, "cpf e/ou senha incorreto(s)!", "Erro", JOptionPane.INFORMATION_MESSAGE, icon);
 
+				System.out.println("Cpf e/ou senha incorreto(s)!");
 				System.out.print("Digite seu CPF: ");
-				cpf = JOptionPane.showInputDialog("Digite o seu cpf: ");
+//				cpf = JOptionPane.showInputDialog("Digite o seu cpf: ");
 				System.out.print("Digite sua senha: ");
-				senha = JOptionPane.showInputDialog("digite sua senha: ");
+//				senha = JOptionPane.showInputDialog("digite sua senha: ");
 
 				usuario = Usuarios.mapaUsuarios.get(cpf);
 
@@ -57,7 +58,7 @@ public class Principal {
 
 //			imprimirLinha();
 
-		}catch(IOException e){
+		}catch(Exception e){
 			System.out.println(e);
 		}
 		finally {
