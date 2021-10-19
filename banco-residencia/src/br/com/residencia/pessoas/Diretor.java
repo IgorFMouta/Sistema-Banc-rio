@@ -17,9 +17,9 @@ public class Diretor extends Gerente {
 
 		@Override
 		public String toString() {
-			return "Diretor [salario=" + this.salario + ", nome=" + this.nome
-					+ ", tipoUsuario=" + this.tipoUsuarios + ", cpf=" + this.cpf + ", senha=" + this.senha + ", agencia="
-					+ this.agencia + ", numeroConta=" + this.numeroConta + "]\n";
+			return "Diretor [salario =" + this.salario + ", nome =" + this.nome
+					+ ", cargo =" + this.cargo + ", cpf =" + this.cpf + ", senha =" + this.senha + ", agencia ="
+					+ this.agencia + ", numeroConta =" + this.numeroConta + "]\n";
 		}
 
 	}

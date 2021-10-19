@@ -3,6 +3,8 @@ package br.com.residencia.menu;
 import java.io.IOException;
 import java.util.InputMismatchException;
 
+import javax.swing.JOptionPane;
+
 import br.com.residencia.IO.LeituraEscrita;
 import br.com.residencia.contas.Conta;
 import br.com.residencia.contas.ContaCorrente;
@@ -21,21 +23,21 @@ public class MenuInterativo {
 		Principal principal = new Principal();
 		ContaCorrente cc = new ContaCorrente();
 		
-		System.out.println("=========================================================================================================\n"
-				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  +\r\n"
-				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:              @@@@#              :@@@@@@@  +\r\n"
-				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#                                      :@@@@@  +\r\n"
-				+ "+ @@@@       @@@@@    @@@@   !@#  @@#      @@@      !@@@@         ########### ####   ####        :@@@@  +\r\n"
-				+ "+ @@@@   @@   @@@      @@@    ##  @@  :@@  :@:  @@#  @@@@!        ####        ####   ####        !@@@@  +\r\n"
-				+ "+ @@@@       @@@@  $$  @@@  #  #  @@  :@@@@@@:  @@#  @@@@@!       ####        ###########       :@@@@@  +\r\n"
-				+ "+ @@@@   @@@   @        @@  #@    @@  :@@@  @:  @@#  @@@@@@#      ########### ####   ####      :@@@@@@  +\r\n"
-				+ "+ @@@@        @@   @@   @@  #@#   @@@     .@@@      @@@@@@@@@@                              :@@@@@@@@@  +\r\n"
-				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                        :@@@@@@@@@@@@  +\r\n"
-				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                :@@@@@@@@@@@@@@@@  +\r\n"
-				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@!       :@@@@@@@@@@@@@@@@@@@@  +\r\n"
-				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@  +\r\n"
-				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  +\r\n"
-				+ "=========================================================================================================");
+//		System.out.println("=========================================================================================================\n"
+//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  +\r\n"
+//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:              @@@@#              :@@@@@@@  +\r\n"
+//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#                                      :@@@@@  +\r\n"
+//				+ "+ @@@@       @@@@@    @@@@   !@#  @@#      @@@      !@@@@         ########### ####   ####        :@@@@  +\r\n"
+//				+ "+ @@@@   @@   @@@      @@@    ##  @@  :@@  :@:  @@#  @@@@!        ####        ####   ####        !@@@@  +\r\n"
+//				+ "+ @@@@       @@@@  $$  @@@  #  #  @@  :@@@@@@:  @@#  @@@@@!       ####        ###########       :@@@@@  +\r\n"
+//				+ "+ @@@@   @@@   @        @@  #@    @@  :@@@  @:  @@#  @@@@@@#      ########### ####   ####      :@@@@@@  +\r\n"
+//				+ "+ @@@@        @@   @@   @@  #@#   @@@     .@@@      @@@@@@@@@@                              :@@@@@@@@@  +\r\n"
+//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                        :@@@@@@@@@@@@  +\r\n"
+//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                :@@@@@@@@@@@@@@@@  +\r\n"
+//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@!       :@@@@@@@@@@@@@@@@@@@@  +\r\n"
+//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@  +\r\n"
+//				+ "+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  +\r\n"
+//				+ "=========================================================================================================");
 		
 		try {
 			
@@ -48,15 +50,20 @@ public class MenuInterativo {
 			System.out.println("[6]\tSair");
 			principal.imprimirLinha();
 			
-			System.out.print("Escolha uma opção para seguir: ");
+//			System.out.print("Escolha uma opção para seguir: ");
+			JOptionPane.showMessageDialog(null, "Escolha uma opção para seguir: ");
 			int opcao = principal.sc.nextInt();
-			Double valor;
+			String valor1;
 			
 			switch(opcao) {
 			case 1:
-				System.out.print("Digite o valor que gostaria de retirar: ");
-				valor = Double.parseDouble(principal.sc.next());
+//				System.out.print("Digite o valor que gostaria de retirar: ");
+				JOptionPane.showMessageDialog(null, "Digite o valor que gostaria de retirar: ");
+//				valor = Double.parseDouble(principal.sc.next());
+				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
 				
+				Double valor = Double.parseDouble(valor1);
+						
 				conta.sacar(valor);
 				
 				LeituraEscrita.comprovanteSaque(conta, valor);
@@ -65,8 +72,10 @@ public class MenuInterativo {
 				break;
 			
 			case 2:
-				System.out.print("Digite o valor apra deposito: ");
-				valor = Double.parseDouble(principal.sc.next());
+//				System.out.print("Digite o valor apra deposito: ");
+//				valor = Double.parseDouble(principal.sc.next());
+				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
+				valor = Double.parseDouble(valor1);
 				
 				conta.depositar(valor);
 				
@@ -76,18 +85,24 @@ public class MenuInterativo {
 				break;
 				
 			case 3:
-				System.out.print("Digite o cpf para o qual deseja transferir: ");
-				cpf = principal.sc.next();
+//				System.out.print("Digite o cpf para o qual deseja transferir: ");
+//				cpf = principal.sc.next();
+				cpf = JOptionPane.showInputDialog("Digite o cpf para o qual deseja transferir: ");
+				
 				Conta destinatario = Conta.mapaContas.get(cpf);
 				
 				while(destinatario == null) {
-					System.out.println("Cpf não encontrado no sistema!\n\n");
-					System.out.print("Digite o cpf para o qual deseja transferir: ");
-					cpf = principal.sc.next();
+//					System.out.println("Cpf não encontrado no sistema!\n\n");
+					JOptionPane.showMessageDialog(null, "Cpf não encontrado no sistema!\n\n");
+//					System.out.print("Digite o cpf para o qual deseja transferir: ");
+//					cpf = principal.sc.next();
+					cpf = JOptionPane.showInputDialog("Digite o cpf para o qual deseja transferir: ");
 					destinatario = Conta.mapaContas.get(cpf);
 				}
-				System.out.println("Informe o valor a ser transferido: ");
-				valor = Double.parseDouble(principal.sc.next());
+//				System.out.println("Informe o valor a ser transferido: ");
+//				valor = Double.parseDouble(principal.sc.next());
+				valor1 = JOptionPane.showInputDialog("Digite o valor para a operação: ");
+				valor = Double.parseDouble(valor1);
 				
 				conta.transferir(valor, destinatario);
 				
@@ -98,18 +113,19 @@ public class MenuInterativo {
 				
 			case 4:
 				System.out.println("Seu saldo é de: R$" + String.format("%,2f", conta.getSaldo()));
+				JOptionPane.showMessageDialog(null, "Seu saldo é de: R$" + String.format("%.2f", conta.getSaldo()));
 				
 				principal.pularLinha();
 				break;
 				
 			case 5:
-				if (usuario.getTipoUsuarios().equalsIgnoreCase(PessoasTipoEnum.CLIENTE.getTipoUsuario())) {
+				if (usuario.getCargo().equalsIgnoreCase(PessoasTipoEnum.CLIENTE.getTipoUsuario())) {
 					MenuRelatorio.menuRelatorio(PessoasTipoEnum.CLIENTE.getIdTipoUsuario(), usuario, conta);
-				} else if (usuario.getTipoUsuarios().equalsIgnoreCase(PessoasTipoEnum.GERENTE.getTipoUsuario())) {
+				} else if (usuario.getCargo().equalsIgnoreCase(PessoasTipoEnum.GERENTE.getTipoUsuario())) {
 					MenuRelatorio.menuRelatorio(PessoasTipoEnum.GERENTE.getIdTipoUsuario(), usuario, conta);
-				} else if (usuario.getTipoUsuarios().equalsIgnoreCase(PessoasTipoEnum.DIRETOR.getTipoUsuario())) {
+				} else if (usuario.getCargo().equalsIgnoreCase(PessoasTipoEnum.DIRETOR.getTipoUsuario())) {
 					MenuRelatorio.menuRelatorio(PessoasTipoEnum.DIRETOR.getIdTipoUsuario(), usuario, conta);
-				} else if (usuario.getTipoUsuarios().equalsIgnoreCase(PessoasTipoEnum.PRESIDENTE.getTipoUsuario())) {
+				} else if (usuario.getCargo().equalsIgnoreCase(PessoasTipoEnum.PRESIDENTE.getTipoUsuario())) {
 					MenuRelatorio.menuRelatorio(PessoasTipoEnum.PRESIDENTE.getIdTipoUsuario(), usuario, conta);
 				}
 				break;
@@ -122,7 +138,8 @@ public class MenuInterativo {
 			
 			default:
 				
-				System.out.println("Essa opção não é válida!");
+//				System.out.println("Essa opção não é válida!");
+				JOptionPane.showMessageDialog(null, "Essa opção não é válida!");
 				
 			}
 			menuInterativo(usuario, conta);

@@ -39,7 +39,7 @@ public class ContaPoupanca extends Conta {
 
 		
 		//Método para calcular o novo saldo
-		public boolean calcularNovoSaldo(double taxaRendimento) {
+		public boolean calcularRendimento(double taxaRendimento, int dias) {
 			int contador = 1;
 			if(DiaRendimento >= contador) {
 				while(DiaRendimento != contador) {
